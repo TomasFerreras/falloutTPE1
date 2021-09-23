@@ -2,7 +2,7 @@
 
 <main class="main">
     <section class="home" id="home">
-        <div class="home-container re-container re-grid">
+        <div class="home-container re-container re-grid gridAllItems">
             <div class="home-info">
                 <div class="items-list">
                     <ul class="all-items-list">
@@ -13,8 +13,8 @@
                 </div>
             </div>
 
-            <div class="home-img">
-                <img src="assets/img/allItems.png" alt="vaultBoy.png">
+            <div class="admin-img">
+                <img class="admin-image" src="assets/img/allItems.png" alt="vaultBoy.png">
             </div>
         </div>
     </section>

@@ -44,6 +44,7 @@ switch ($params[0]) {
     case 'admin': 
         $controller->showAdminPage(); 
     break;
+
     case 'edit': 
         $controller->showAdminPage_edit(); 
     break;
@@ -51,10 +52,18 @@ switch ($params[0]) {
     case 'Item':
         $controller->showItem($params[1]);
     break;
+    
+    case 'login': 
+        $controller->showLogin(); 
+    break;
+
+    case 'adminlogin': 
+        $controller->showAdminLogin(); 
+    break;
 
     default: 
-        echo('404 Page not found'); 
-        break;
+        $controller->shownotFound(); 
+    break;
 };
 
 

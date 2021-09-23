@@ -44,4 +44,16 @@ require_once "./View/view.php";
             $items = $this->model->getItems();
             $this->view->ItemsDescription($items , $item);
         }
+
+        function showLogin(){
+            $this->view->Login();
+        }
+
+        function showAdminLogin(){
+            $this->view->AdminLogin();
+        }
+
+        function showNotFound(){
+            $this->view->notFound();
+        }
     }

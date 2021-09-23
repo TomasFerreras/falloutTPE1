@@ -33,6 +33,19 @@ class view{
         $this->smarty->assign('item', $item);
     }
 
+    function Login(){
+        $this->smarty->display('templates/login.tpl');
+    }
+
+    function AdminLogin(){
+        $this->smarty->display('templates/loginAdmin.tpl');
+    }
+
+    function notFound(){
+        $this->smarty->display('templates/notFound404.tpl');
+    }
+
+
     function showAdminPage($items){
         $html = '
             <!DOCTYPE html>

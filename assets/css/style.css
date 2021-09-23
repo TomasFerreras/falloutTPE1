@@ -75,7 +75,7 @@ a{
 }
 
 img{
-  max-width: 100%;
+  max-width: 300px;
   height: auto;
 }
 
@@ -130,6 +130,22 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.notFound-main{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.div-notFound{
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.notFound-main{
+  animation: transitionIn 1s;
 }
 
 @media screen and (max-width: 768px){
@@ -188,6 +204,7 @@ img{
 
 .home-info{
     margin-top: 1rem;
+    justify-self: center;
 }
 
 .home-img{
@@ -273,7 +290,7 @@ input{
   border: none;
   border: 2px solid black;
   font-size: 1.2rem;
-  width: 100%;
+  width: 50%;
 }
 
 label{
@@ -283,6 +300,23 @@ label{
 }
 
 /*Admin*/
+.admin-header{
+  background-color: var(--background-clr);
+}
+
+.admin-logo{
+  color: var(--blue-clr);
+}
+
+.nav-admin{
+  color: var(--blue-clr);
+}
+
+.nav-admin-btn{
+  background-color: var(--blue-clr);
+  color: var(--yellow-clr);
+}
+
 .adminBody{
   background-color: var(--blue-clr);
 }
@@ -294,6 +328,7 @@ label{
 
 .admin-input{
   border: 2px solid var(--yellow-clr);
+  margin-bottom: var(--mb-2);
 }
 
 .admin-label{
@@ -316,7 +351,7 @@ label{
 
 .admin-image{
   justify-self: center;
-  border: 2px solid var(--yellow-clr);
+  
   margin-top: var(--mb-5);
 }
 
@@ -324,12 +359,198 @@ label{
   color: var(--yellow-clr);
 }
 
+.admin-404{
+  display: none;
+}
+
 /*All items page*/
 .all-items-item{
   color: var(--blue-clr);
+  text-align: center;
+}
+
+.gridAllItems{
+  justify-content: center;
+  text-align: center;
 }
 
 .item-per-categories{
   color: var(--blue-clr);
   font-size: var(--biggest-font-size);
+}
+
+.admin-404{
+  display: flex;
+  justify-content: left;
+  margin-top: .5rem;
+  color: var(--yellow-clr);
+}
+
+.not-found-title{
+  font-size: 3rem;
+  color: var(--blue-clr);
+}
+
+/*MEDIA QUERIES*/
+@media screen and (min-width: 576px){
+  body{
+    margin: var(--header-height) 0 0 0;
+  }
+
+  .home-container{
+    align-items: center;
+    row-gap: 3rem;
+  }
+
+  .home-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-container{
+    height: calc(100vh - var(--header-height));
+  }
+
+  .home-title{
+    font-size: 2.5rem;
+  }
+
+  .categories-title{
+    font-size: 2.3rem;
+  }
+
+  .categories-subtitle{
+    font-size: 2rem
+  }
+
+  .categories-p{
+    font-size: 1rem;
+  }
+
+  .home-img{
+      width: 280px;
+      justify-self: center;
+  }
+
+  .re-grid{
+    align-content: space-around;
+  }
+
+  input{
+    width: 100%;
+  }
+
+  .item-per-categories{
+    font-size: 3rem;
+    text-decoration: underline var(--yellow-clr);
+    text-align: center;
+  }
+
+  .all-items-list > li{
+    margin-bottom: .2rem;
+    font-size: .975rem;
+    text-align: center;
+  }
+
+  .gridAllItems{
+    justify-content: left;
+    text-align: left;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px){
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav-list{
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-login-item{
+    margin: 0;
+  }
+
+  .nav-item{
+    margin-left: var(--mb-5);
+    margin-bottom: 0;
+  }
+
+  .nav-toggle{
+    display: none;
+  }
+
+  .main{
+    margin-top: calc(var(--header-height) + 1.5rem);
+  }
+
+  .re-container{
+    margin: auto
+  }
+
+  .home-info{
+    margin: 0;
+    justify-self: left;
+    width: 100%;
+  }
+
+  .home-img{
+    max-width: 400px;
+  }
+
+  .loginBtn{
+    margin: .8rem .5rem 1rem 0 ;
+  }
+
+  .home-title{
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+
+  .login-title{
+    font-size: 3rem;
+  }
+
+  .re-grid{
+    grid-template-columns: repeat(2, 1fr);
+    
+  }
+
+  .all-items-list > li {
+    margin-bottom: .2rem;
+    text-align: left;
+    font-size: 1.2rem;
+  }
+
+  .allItemImg{
+    object-fit: cover;
+  }
+
+  .item-per-categories{
+    text-align: left;
+  }
+
+  .admin-message{
+    display: none;
+  }
+
+  .admin-image{
+    margin: 0;
+    max-width: 450px;
+  }
+
+  .admin-login-title{
+    font-size: 3rem;
+  }
+
+  .login-img{
+    max-width: 400px;
+  }
+
+  .not-found-title{
+    font-size: 6rem;
+  }
 }

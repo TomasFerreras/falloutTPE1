@@ -9,16 +9,16 @@
     <base href="''.BASE_URL.'">
     <title>FalloutDB</title>
 </head>
-<body>
-    <header class="header">
+<body class="adminBody">
+    <header class="header admin-header">
         <nav class="nav re-container">
-            <a href="home" class="nav-logo">FALLOUT 4 DB</a>
+            <a href="home" class="nav-logo admin-logo">FALLOUT 4 DB</a>
 
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="allItems" class="nav-link">All items</a></li>
-                    <li class="nav-item"><a href="allCategories" class="nav-link">All categories</a></li>
-                    <li class="nav-item nav-login-item"><a href="login" class="nav-link nav-link-item">Log in</a></li>
+                    <li class="nav-item"><a href="allItems" class="nav-link nav-admin">All items</a></li>
+                    <li class="nav-item"><a href="allCategories" class="nav-link nav-admin">All categories</a></li>
+                    <li class="nav-item nav-login-item"><a href="login" class="nav-link nav-link-item nav-admin-btn">Log in</a></li>
                 </ul>
             </div>
 

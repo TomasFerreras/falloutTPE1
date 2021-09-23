@@ -11,12 +11,12 @@
                     <label for="password">Password</label>
                     <input type="password" name="password">
                     <button class="loginBtn">Log in</button>
-                    <a href="loginAdmin.html" class="loginBtnAdmin">Log in as administrator</a>
+                    <a href="adminlogin" class="loginBtnAdmin">Log in as administrator</a>
                 </form>
             </div>
 
-            <div class="home-img login-img">
-                <img src="assets/img/NicePng_fallout-png_234265.png" alt="vaultBoy.png">
+            <div class="admin-img">
+                <img class="admin-image login-img" src="assets/img/loginVaultBoy.png" alt="vaultBoy.png">
             </div>
         </div>
     </section>
