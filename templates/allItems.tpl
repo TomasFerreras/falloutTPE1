@@ -20,4 +20,4 @@
     </section>
 </main>
 
-{include file="templates/footer.tpl"}
+{include file='templates/footer.tpl'}

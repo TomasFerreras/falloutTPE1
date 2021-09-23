@@ -31,16 +31,10 @@ switch ($params[0]) {
         $controller->showAllCategories(); 
     break;
 
-    case 'consumables': 
-        $controller->showItems_Categories("consumables"); 
+    case 'Category': 
+        $controller->showItems_Categories($params[1]); 
     break;
-    case 'weapons': 
-        $controller->showItems_Categories("weapons"); 
-    break;
-    case 'armors': 
-        $controller->showItems_Categories("armors"); 
-    break;
-
+    
     case 'admin': 
         $controller->showAdminPage(); 
     break;

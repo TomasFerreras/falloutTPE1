@@ -31,6 +31,7 @@ class view{
     function ItemsDescription($items , $item){
         $this->smarty->assign('items', $items);
         $this->smarty->assign('item', $item);
+        $this->smarty->display('templates/itemDescription.tpl');
     }
 
     function Login(){

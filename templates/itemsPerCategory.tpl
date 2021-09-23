@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+    <link rel="stylesheet" href="assets/css/style.css">
 
 <main class="main">
     <section class="home" id="home">

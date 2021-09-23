@@ -8,7 +8,7 @@
                 
                 {foreach from=$categories item=$category}
                     <div>
-                        <h2><a href="{$category->name_category}" class="categories-subtitle">{$category->name_category}</a></h2>
+                        <h2><a href="Category/{$category->name_category}" class="categories-subtitle">{$category->name_category}</a></h2>
                         <p class="categories-p">{$category->description_category}</p>
                     </div>
                 {/foreach}
