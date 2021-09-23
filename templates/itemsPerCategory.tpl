@@ -12,7 +12,7 @@
                         <ul class="all-items-list">
                             {foreach from=$items_Category item=$Items_Category}
                                 {if $Items_Category->category == $category}
-                                    <li><a class="all-items-item" href="#">{$Items_Category->name_item} </a>/ {$category}</li>
+                                    <li><a class="all-items-item" href="Item/{$Items_Category->name_item}">{$Items_Category->name_item} </a>/ {$category}</li>
                                 {/if}
                             {/foreach}
                         </ul>
@@ -21,7 +21,13 @@
             </div>
 
             <div class="home-img">
+                {if $category == consumables}
+                    <img src="assets/img/fatVaultBoy.png" alt="vaultBoy.png">
+                {else if $category == weapons}
+                    <img src="assets/img/weaponVaultBoy.png" alt="vaultBoy.png">
+                {else}
                 <img src="assets/img/fireBoy.png" alt="vaultBoy.png">
+                {/if}
             </div>
         </div>
     </section>
