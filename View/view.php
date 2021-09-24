@@ -46,15 +46,15 @@ class view{
         $this->smarty->display('templates/notFound404.tpl');
     }
 
-    function adminPage($items){
+    function adminPage($items ){
         $this->smarty->assign('items', $items);
         $this->smarty->display('templates/adminPage.tpl');
     }
 
-    function adminModel($items , $search){
-        $this->smarty->assign('items', $items);
-        $this->smarty->assign('search', $search);
-        $this->smarty->display('templates/adminModel.tpl');
+    function adminModel(){
+        // $this->smarty->assign('items', $items);
+        // $this->smarty->assign('search', $search);
+        $this->smarty->display('templates/admin.tpl');
     }
     
     

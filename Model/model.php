@@ -18,7 +18,11 @@ class Model{
         $sentencia->execute();
         $categories = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $categories;
-    }
+    }   
 
+    function insertItem($name,$description,$weight,$category){
+        $sentencia = $this->db->prepare("INSERT INTO db_item(name_item,description_item, weight_item, category ) VALUES(?, ?, ?, ?)");
+        $sentencia->execute(array($name,$description,$weight, $category ));
+    }
 
 }

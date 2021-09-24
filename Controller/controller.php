@@ -49,11 +49,18 @@ require_once "./View/view.php";
 
         function showAdmin(){
             $items = $this->model->getItems();
-            $this->view->adminPage($items);
+           
+            $this->view->adminPage($items );
         } 
 
         function showAdminModel(){
+            // $items = $this->model->getItems();
+            $this->view->adminModel();
+        }
+
+        function createItem(){
+            $this->model->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category']);
             $items = $this->model->getItems();
-            $this->view->adminModel($items , $_POST['adminSearch']);
+            $this->view->adminPage($items);
         }
     }
