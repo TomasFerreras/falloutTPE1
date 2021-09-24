@@ -30,16 +30,6 @@ require_once "./View/view.php";
             $this->view->showConsumables($Items_Category, $id_category);
         }
 
-        function showAdminPage(){
-            $items = $this->model->getItems();
-            $this->view->showAdminPage($items);
-        }
-
-        function showAdminPage_edit(){
-            $items = $this->model->getItems();
-            $this->view->ItemsEdit($items);
-        }
-
         function showItem($item){
             $items = $this->model->getItems();
             $this->view->ItemsDescription($items , $item);
@@ -55,5 +45,15 @@ require_once "./View/view.php";
 
         function showNotFound(){
             $this->view->notFound();
+        }
+
+        function showAdmin(){
+            $items = $this->model->getItems();
+            $this->view->adminPage($items);
+        } 
+
+        function showAdminModel(){
+            $items = $this->model->getItems();
+            $this->view->adminModel($items , $_POST['adminSearch']);
         }
     }

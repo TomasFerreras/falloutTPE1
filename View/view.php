@@ -46,61 +46,18 @@ class view{
         $this->smarty->display('templates/notFound404.tpl');
     }
 
-
-    function showAdminPage($items){
-        $html = '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>AdminOptions</title>
-            </head>
-                <body>
-                    <table style="border:1px solid black">
-                        <thead>
-                            <tr>
-                                <td>id_item</td>
-                                <td>name_item</td>
-                                <td>description_item</td>
-                                <td>weight_item</td>
-                                <td>category</td>
-                            </tr>
-                        </thead>
-                        <tbody>';
-                        foreach($items as $item){
-                            $html.= '<tr>
-                                        <td>'. $item->id_item . '</td>
-                                        <td>'. $item->name_item .' </td>
-                                        <td>'. $item->description_item .'</td>
-                                        <td>'. $item->weight_item . '</td>
-                                        <td>'. $item->category . '</td>
-                                    </tr>';
-                        }
-                        $html.='
-                        </tbody>
-                    </table>
-                    
-
-                    <form> 
-                        <label for="inputAdmin">
-                        <input type="text" name="inputAdmin">
-                        <button type="submit" value="delete">delete</button>
-                        <button type="submit" value="add">add</button>
-                    </form>
-
-                    <form action="edit" method="POST">
-                        id_item to edit
-                        <input type="text" name="adminEdit">
-                        <button type="submit" value="delete">Edit</button>
-                    </form>
-
-                </body>
-            </html>';
-        echo $html;
+    function adminPage($items){
+        $this->smarty->assign('items', $items);
+        $this->smarty->display('templates/adminPage.tpl');
     }
 
+    function adminModel($items , $search){
+        $this->smarty->assign('items', $items);
+        $this->smarty->assign('search', $search);
+        $this->smarty->display('templates/adminModel.tpl');
+    }
+    
+    
     function ItemsEdit($items){
         $html = '
         <!DOCTYPE html>

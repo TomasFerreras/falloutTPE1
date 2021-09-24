@@ -35,13 +35,6 @@ switch ($params[0]) {
         $controller->showItems_Categories($params[1]); 
     break;
     
-    case 'admin': 
-        $controller->showAdminPage(); 
-    break;
-
-    case 'edit': 
-        $controller->showAdminPage_edit(); 
-    break;
 
     case 'Item':
         $controller->showItem($params[1]);
@@ -53,6 +46,14 @@ switch ($params[0]) {
 
     case 'adminlogin': 
         $controller->showAdminLogin(); 
+    break;
+    
+    case 'admin': 
+        $controller->showAdmin(); 
+    break;
+
+    case 'search': 
+        $controller->showAdminModel(); 
     break;
 
     default: 

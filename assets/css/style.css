@@ -53,7 +53,6 @@ body{
   background-color: var(--background-clr);
   color: var(--black-clr);
   line-height: 1.6;
-  overflow-y: hidden;
 }
 
 h1,h2,h3,ul,p{
@@ -459,6 +458,14 @@ label{
 }
 
 @media screen and (min-width: 768px){
+  .pija{
+    margin-top:5rem ;
+  }
+
+  .pija table tr td{
+    border: 1px solid black;
+  }
+
   .nav{
     height: calc(var(--header-height) + 1.5rem);
   }

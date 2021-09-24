@@ -14,7 +14,7 @@
                     <input class="admin-input" type="password" name="adminKey">
                     <button class="loginAdmin">Log in</button>
                 </form>
-                <a href="error 404" class="admin-404">support@gmail.com</a>
+                <a href="admin" class="admin-404">support@gmail.com</a>
             </div>
 
             <div class="admin-img">
