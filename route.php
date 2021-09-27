@@ -52,13 +52,21 @@ switch ($params[0]) {
         $controller->showAdmin(); 
     break;
 
-    case 'search': 
-        $controller->showAdminModel(); 
-    break; 
+    case 'adminSearch': 
+        $controller->search(); 
+    break;
 
     case 'createItem': 
         $controller->createItem(); 
     break; 
+
+    case 'deleteItem': 
+        $controller->deleteItem($params[1]); 
+    break;
+
+    case 'editItem': 
+        $controller->editItem($params[1]); 
+    break;
 
     default: 
         $controller->shownotFound(); 

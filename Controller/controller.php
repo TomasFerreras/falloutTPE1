@@ -52,19 +52,26 @@ class Controller{
     }
 
     function showAdmin(){
-        $items = $this->itemModel->getItems();
-        
-        $this->view->adminPage($items );
-    } 
+        $this->view->adminPage();
+    }   
 
-    function showAdminModel(){
-        // $items = $this->model->getItems();
-        $this->view->adminModel();
+    function search(){
+        $items = $this->itemModel->getItems();
+        $this->view->searchAdminPage($items, $_POST['search'] );
     }
 
     function createItem(){
         $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category']);
-        $items = $this->itemModel->getItems();
-        $this->view->adminPage($items);
+        $this->view->showAdminPage();
+    }
+
+    function deleteItem($nameItem){
+        $this->itemModel->deleteItem($nameItem);
+        $this->view->showAdminPage();
+    }
+
+    function editItem($nameItem){
+        $this->itemModel->editItem($nameItem,$_POST['nameItem'], $_POST['desciptionItem'], $_POST['weightItem'], $_POST['itemCategory'] );
+        $this->view->showAdminPage();
     }
 }

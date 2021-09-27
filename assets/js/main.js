@@ -11,4 +11,10 @@ const showMenu = (toggleId, navId) =>{
         })
     }
 }
-showMenu('navToggle','navMenu')
+showMenu('navToggle','navMenu');
+
+let editItem =document.getElementById("editItem");
+document.getElementById("edit").addEventListener("click", function(e){
+    editItem.classList.remove("item");
+})
+

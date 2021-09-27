@@ -46,15 +46,18 @@ class view{
         $this->smarty->display('templates/notFound404.tpl');
     }
 
-    function adminPage($items ){
-        $this->smarty->assign('items', $items);
+    function adminPage(){
         $this->smarty->display('templates/adminPage.tpl');
     }
 
-    function adminModel(){
-        // $this->smarty->assign('items', $items);
-        // $this->smarty->assign('search', $search);
-        $this->smarty->display('templates/admin.tpl');
+    function searchAdminPage($items, $search){
+        $this->smarty->assign('search', $search);
+        $this->smarty->assign('items', $items);
+        $this->smarty->display('templates/adminModel.tpl');
+    }
+
+    function showAdminPage(){
+        header("location: ".BASE_URL."admin");
     }
     
     

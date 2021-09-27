@@ -392,6 +392,8 @@ label{
 
 /*MEDIA QUERIES*/
 @media screen and (min-width: 576px){
+  
+
   body{
     margin: var(--header-height) 0 0 0;
   }
@@ -458,6 +460,10 @@ label{
 }
 
 @media screen and (min-width: 768px){
+  .item{
+    display : none;
+  }
+
   .pija{
     margin-top:5rem ;
   }
