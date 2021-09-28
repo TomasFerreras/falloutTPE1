@@ -5,13 +5,13 @@
         <div class="home-container re-container re-grid">
             <div class="home-info">
                 <h1 class="admin-login-title">Admin login</h1>
-                <form class="admin-login-form">
-                    <label class="admin-label" for="adminName">Admin name</label>
-                    <input class="admin-input" type="text" name="adminName">
-                    <label class="admin-label" for="adminPassword">Password</label>
-                    <input class="admin-input" type="password" name="adminPassword">
-                    <label class="admin-label" for="adminKey">Security key</label>
-                    <input class="admin-input" type="password" name="adminKey">
+
+                <form class="admin-login-form" action="userLogin" method="POST">
+                    <label class="admin-label" for="userEmail">Admin name</label>
+                    <input class="admin-input" type="text" name="userEmail">
+
+                    <label class="admin-label" for="userPassword">Password</label>
+                    <input class="admin-input" type="password" name="userPassword">
                     <button class="loginAdmin">Log in</button>
                 </form>
                 <a href="admin" class="admin-404">support@gmail.com</a>

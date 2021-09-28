@@ -4,15 +4,19 @@
     <section class="home" id="home">
         <div class="home-container re-container re-grid">
             <div class="home-info">
-                <h1 class="login-title">User login</h1>
-                <form class="login-form">
-                    <label for="userName">User name</label>
-                    <input type="text" name="userName">
-                    <label for="password">Password</label>
-                    <input type="password" name="password">
-                    <button class="loginBtn">Log in</button>
+                <h1 class="login-title">User Register</h1>
+
+                <form class="login-form" method="POST" action="userRegister">
+                    <label for="user_email">Email</label>
+                    <input type="text" name="user_email" required>
+
+                    <label for="user_password">Password</label>
+                    <input type="password" name="user_password" required>
+
+                    <button class="loginBtn">Register</button>
                     <a href="adminlogin" class="loginBtnAdmin">Log in as administrator</a>
                 </form>
+
             </div>
 
             <div class="admin-img">

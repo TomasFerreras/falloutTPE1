@@ -2,17 +2,20 @@
 
 require_once "./Model/categoryModel.php";
 require_once "./Model/itemModel.php";
+require_once "./Model/usersModel.php";
 require_once "./View/view.php";
 class Controller{
 
     private $itemModel;
     private $categoryModel;
+    private $userModel;
     private $view;
 
     function __construct(){
         $this->itemModel = new itemModel;
         $this->categoryModel = new categoryModel;
         $this->view = new view;
+        $this->userModel = new userModel;
     }
 
     function showHome(){
@@ -40,7 +43,14 @@ class Controller{
     }
 
     function showLogin(){
+        session_start();
+        if (isset($_SESSION["loged"])){
+            if ($_SESSION["loged"] == true){
+                $this->view->adminPage();
+            }
+        }else{
         $this->view->Login();
+        }
     }
 
     function showAdminLogin(){
@@ -72,6 +82,34 @@ class Controller{
 
     function editItem($nameItem){
         $this->itemModel->editItem($nameItem,$_POST['nameItem'], $_POST['desciptionItem'], $_POST['weightItem'], $_POST['itemCategory'] );
-        $this->view->showAdminPage();
+    }
+
+    function addRegister(){
+        if (!empty($_POST['user_email'] && !empty($_POST['user_password']))){
+            $user_email = $_POST['user_email'];
+            $user_password = password_hash($_POST['user_password'], PASSWORD_BCRYPT);
+            $this->userModel->insertUser($user_email, $user_password);
+            $this->view->AdminLogin();
+        }else{
+            $this->view->notFound();
+        }
+    }
+
+
+    function userLogin(){
+        session_start();
+        if (!empty($_POST['userEmail'] && !empty($_POST['userPassword']))){
+            $user_email_login = $_POST['userEmail'];
+            $user_password_login = $_POST['userPassword'];
+            $hashedPassword = $this->userModel->verifyUser($user_email_login);
+
+            if($hashedPassword[0] && password_verify($user_password_login, $hashedPassword[1])){
+                $_SESSION["loged"] = true;
+                $_SESSION["userEmail"] = $user_email_login;
+                $this->view->adminPage();
+            }
+        }else{
+            $this->view->notFound();
+        }
     }
 }

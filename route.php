@@ -68,6 +68,14 @@ switch ($params[0]) {
         $controller->editItem($params[1]); 
     break;
 
+    case 'userRegister':
+        $controller->addRegister();
+    break;
+
+    case 'userLogin':
+        $controller->userLogin();
+    break;
+
     default: 
         $controller->shownotFound(); 
     break;
