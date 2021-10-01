@@ -1,6 +1,8 @@
 <?php
 
-require_once "Controller/controller.php";
+require_once "Controller/itemController.php";
+require_once "Controller/categoryController.php";
+require_once "Controller/userController.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -16,68 +18,70 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 
-$controller = new Controller();
+$itemController = new itemController();
+$categoryController = new categoryController();
+$userController = new userController();
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home': 
-        $controller->showHome(); 
+        $itemController->showHome(); 
     break;
 
     case 'allItems': 
-        $controller->showAllItems(); 
+        $itemController->showAllItems(); 
     break;
 
     case 'allCategories': 
-        $controller->showAllCategories(); 
+        $categoryController->showAllCategories(); 
     break;
 
     case 'Category': 
-        $controller->showItems_Categories($params[1]); 
+        $categoryController->showItems_Categories($params[1]); 
     break;
     
 
     case 'Item':
-        $controller->showItem($params[1]);
+        $itemController->showItem($params[1]);
     break;
     
     case 'login': 
-        $controller->showLogin(); 
+        $userController->showLogin(); 
     break;
 
     case 'adminlogin': 
-        $controller->showAdminLogin(); 
+        $userController->showAdminLogin(); 
     break;
     
     case 'admin': 
-        $controller->showAdmin(); 
+        $userController->showAdmin(); 
     break;
 
     case 'adminSearch': 
-        $controller->search(); 
+        $itemController->search(); 
     break;
 
     case 'createItem': 
-        $controller->createItem(); 
+        $itemController->createItem(); 
     break; 
 
     case 'deleteItem': 
-        $controller->deleteItem($params[1]); 
+        $itemController->deleteItem($params[1]); 
     break;
 
     case 'editItem': 
-        $controller->editItem($params[1]); 
+        $itemController->editItem($params[1]); 
     break;
 
     case 'userRegister':
-        $controller->addRegister();
+        $userController->addRegister();
     break;
 
     case 'userLogin':
-        $controller->userLogin();
+        $userController->userLogin();
     break;
 
     default: 
-        $controller->shownotFound(); 
+        $userController->shownotFound(); 
     break;
 };
 
