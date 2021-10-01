@@ -20,7 +20,7 @@
                             <td>{$item->name_item}  </td>
                             <td>{$item->description_item} </td>
                             <td>{$item->weight_item} </td>
-                            <td>{$item->category} </td>
+                            <td>{$item->fk_id_category} </td>
                         </tr>
                     {/if}
                 {/foreach}
@@ -53,7 +53,7 @@
                             <td><input name="nameItem" placeholder ="{$item->name_item}">  </td>
                             <td><input name="desciptionItem" placeholder ="{$item->description_item}"> </td>
                             <td><input name="weightItem" placeholder ="{$item->weight_item}"> </td>
-                            <td><input name="itemCategory" placeholder ="{$item->category}"> </td>
+                            <td><input name="itemCategory" placeholder ="{$item->fk_id_category}"> </td>
                         </tr>
                     {/if}
                 {/foreach}

@@ -17,8 +17,5 @@ class categoryController{
         $this->view->AllCategories($categories);
     }
 
-    function showItems_Categories($id_category){
-        $Items_Category = $this->itemModel->getItems();
-        $this->view->showConsumables($Items_Category, $id_category);
-    }
+    
 }

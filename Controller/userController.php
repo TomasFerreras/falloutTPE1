@@ -9,7 +9,7 @@ class userController{
 
     function __construct(){
         $this->view = new userView;
-        // $this->userModel = new userModel;
+        $this->userModel = new userModel;
     }
 
     function addRegister(){
@@ -30,10 +30,10 @@ class userController{
             $user_password_login = $_POST['userPassword'];
             $hashedPassword = $this->userModel->verifyUser($user_email_login);
 
-            if($hashedPassword[0] && password_verify($user_password_login, $hashedPassword[1])){
+            if($hashedPassword && password_verify($user_password_login, $hashedPassword->user_password)){
                 $_SESSION["loged"] = true;
                 $_SESSION["userEmail"] = $user_email_login;
-                $this->view->adminPage();
+                $this->showAdmin();
             }
         }else{
             $this->view->notFound();

@@ -11,10 +11,5 @@ class categoryView{
         $this->smarty->display('templates/allCategories.tpl');
     }
 
-    function showConsumables($Items_Category, $Category){
-        $this->smarty->assign('items_Category', $Items_Category);
-        $this->smarty->assign('category', $Category);
-
-        $this->smarty->display('templates/itemsPerCategory.tpl');
-    }
+    
 }

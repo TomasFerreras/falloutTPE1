@@ -36,7 +36,7 @@ switch ($params[0]) {
     break;
 
     case 'Category': 
-        $categoryController->showItems_Categories($params[1]); 
+        $itemController->showItems_Categories($params[1]); 
     break;
     
 

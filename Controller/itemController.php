@@ -26,6 +26,11 @@ class itemController{
         $this->view->ItemsDescription($items , $item);
     }
 
+    function showItems_Categories($id_category){
+        $Items_Category = $this->itemModel->getItems();
+        $this->view->showConsumables($Items_Category, $id_category);
+    }
+
     function search(){
         $items = $this->itemModel->getItems();
         $this->view->searchAdminPage($items, $_POST['search'] );

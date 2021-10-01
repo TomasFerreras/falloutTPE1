@@ -23,7 +23,12 @@ class view{
         $this->smarty->display('templates/itemDescription.tpl');
     }
 
-    
+    function showConsumables($Items_Category, $Category){
+        $this->smarty->assign('items_Category', $Items_Category);
+        $this->smarty->assign('category', $Category);
+
+        $this->smarty->display('templates/itemsPerCategory.tpl');
+    }
 
     function searchAdminPage($items, $search){
         $this->smarty->assign('search', $search);
