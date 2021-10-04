@@ -24,6 +24,5 @@ class userModel{
         $query->execute([$user_email_login]);
 
         return $query->fetch(PDO::FETCH_OBJ);
-        
     }
 }

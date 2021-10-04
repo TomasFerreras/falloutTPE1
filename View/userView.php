@@ -7,11 +7,11 @@ class userView{
     }
 
     function Login(){
-        $this->smarty->display('templates/login.tpl');
+        $this->smarty->display('templates/register.tpl');
     }
 
     function AdminLogin(){
-        $this->smarty->display('templates/loginAdmin.tpl');
+        $this->smarty->display('templates/login.tpl');
     }
 
     function adminPage(){

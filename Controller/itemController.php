@@ -48,10 +48,5 @@ class itemController{
 
     function editItem($nameItem){
         $this->itemModel->editItem($nameItem,$_POST['nameItem'], $_POST['desciptionItem'], $_POST['weightItem'], $_POST['itemCategory'] );
-    }
-
-    
-
-
-    
+    }    
 }

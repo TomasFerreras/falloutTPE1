@@ -30,40 +30,6 @@
                         </form>    
                     </div>
 
-                    {* <div id="showItem" class="item">
-                    {if $search == 0}
-                        <p>REREWKIRJWEIOJWEN</p>
-                    {else}
-                        
-                        {foreach from=$items item=$item}
-                            {if $item->name_item == $search}
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <td>id_item</td>
-                                            <td>name_item</td>
-                                            <td>description_item</td>
-                                            <td>weight_item</td>
-                                            <td>id_category</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{$item->id_item}</td>
-                                            <td>{$item->name_item}</td>
-                                            <td>{$item->description_item}</td>
-                                            <td>{$item->weight_item}</td>
-                                            <td>{$item->id_category}</td>
-                                    </tbody>
-                                </table>
-                           {else}
-                                <h4>ERROR</h4>
-                            {/if}
-                        {/foreach}
-                    {/if}
-                                
-                    </div> *}
-
             </div>
         </section>
     </main>

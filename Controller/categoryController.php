@@ -16,6 +16,4 @@ class categoryController{
         $categories = $this->categoryModel->getCategories();
         $this->view->AllCategories($categories);
     }
-
-    
 }

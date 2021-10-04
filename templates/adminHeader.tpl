@@ -18,7 +18,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="allItems" class="nav-link nav-admin">All items</a></li>
                     <li class="nav-item"><a href="allCategories" class="nav-link nav-admin">All categories</a></li>
-                    <li class="nav-item nav-login-item"><a href="login" class="nav-link nav-link-item nav-admin-btn">Log in</a></li>
+                    <li class="nav-item nav-login-item"><a href="login" class="nav-link nav-link-item nav-admin-btn">Log out</a></li>
                 </ul>
             </div>
 

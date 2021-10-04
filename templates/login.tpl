@@ -4,23 +4,22 @@
     <section class="home" id="home">
         <div class="home-container re-container re-grid">
             <div class="home-info">
-                <h1 class="login-title">User Register</h1>
+                <h1 class="admin-login-title">Admin login</h1>
 
-                <form class="login-form" method="POST" action="userRegister">
-                    <label for="user_email">Email</label>
-                    <input type="text" name="user_email" required>
+                <form class="admin-login-form" action="userLogin" method="POST">
+                    <label class="admin-label" for="userEmail">Admin name</label>
+                    <input class="admin-input" type="text" name="userEmail">
 
-                    <label for="user_password">Password</label>
-                    <input type="password" name="user_password" required>
-
-                    <button class="loginBtn">Register</button>
-                    <a href="adminlogin" class="loginBtnAdmin">Log in as administrator</a>
+                    <label class="admin-label" for="userPassword">Password</label>
+                    <input class="admin-input" type="password" name="userPassword">
+                    <button class="loginAdmin">Log in</button>
                 </form>
-
+                <a href="admin" class="admin-404">support@gmail.com</a>
             </div>
 
             <div class="admin-img">
-                <img class="admin-image login-img" src="assets/img/loginVaultBoy.png" alt="vaultBoy.png">
+                <img class="admin-image" src="assets/img/adminImage.png" alt="vaultBoy.png">
+                <p class="admin-message">"Don't worry, I only test the weapons on customers I don't like." -Assaultron</p>
             </div>
         </div>
     </section>
