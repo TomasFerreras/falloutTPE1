@@ -6,29 +6,39 @@ class itemController{
 
     private $itemModel;
     private $view;
+    private $verify;
 
     function __construct(){
         $this->itemModel = new itemModel;
         $this->view = new view;
+        
+        session_start();
+        if(isset($_SESSION['loged'])){
+            if ($_SESSION['loged'] == true) {
+                $this->verify = true;
+            }else{
+                $this->verify = false;
+            }
+        }
     }
 
     function showHome(){
-        $this->view->Home();
+        $this->view->Home($this->verify);
     }
     
     function showAllItems(){
         $items = $this->itemModel->getItems();
-        $this->view->AllItems($items);
+        $this->view->AllItems($items, $this->verify);
     }
 
     function showItem($item){
         $items = $this->itemModel->getItems();
-        $this->view->ItemsDescription($items , $item);
+        $this->view->ItemsDescription($items , $item, $this->verify);
     }
 
     function showItems_Categories($id_category){
         $Items_Category = $this->itemModel->getItems();
-        $this->view->showConsumables($Items_Category, $id_category);
+        $this->view->showItemPerCategory($Items_Category, $id_category, $this->verify);
     }
 
     function search(){

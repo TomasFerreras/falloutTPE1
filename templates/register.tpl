@@ -14,7 +14,7 @@
                     <input type="password" name="user_password" required>
 
                     <button class="loginBtn">Register</button>
-                    <a href="adminlogin" class="loginBtnAdmin">Log in</a>
+                    <a href="login" class="loginBtnAdmin">Log in</a>
                 </form>
 
             </div>

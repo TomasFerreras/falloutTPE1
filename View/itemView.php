@@ -7,23 +7,27 @@ class view{
         $this->smarty = new Smarty();
     }
 
-    function Home(){
+    function Home($verify){
+        $this->smarty->assign('verify', $verify);
         $this->smarty->display('templates/landingPageMain.tpl');
     }
     
-    function AllItems($items){
+    function AllItems($items, $verify){
+        $this->smarty->assign('verify', $verify);
         $this->smarty->assign('items', $items);
         $this->smarty->display('templates/allItems.tpl');
     }
 
 
-    function ItemsDescription($items , $item){
+    function ItemsDescription($items , $item, $verify){
+        $this->smarty->assign('verify', $verify);
         $this->smarty->assign('items', $items);
         $this->smarty->assign('item', $item);
         $this->smarty->display('templates/itemDescription.tpl');
     }
 
-    function showConsumables($Items_Category, $Category){
+    function showItemPerCategory($Items_Category, $Category, $verify){
+        $this->smarty->assign('verify', $verify);
         $this->smarty->assign('items_Category', $Items_Category);
         $this->smarty->assign('category', $Category);
 

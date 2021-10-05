@@ -237,13 +237,13 @@ img{
 .categories-title{
     font-size: var(--biggest-font-size);
     font-weight: var(--font-bold);
-    color: var(--blue-clr);
+    color: var(--yellow-clr);
     margin-bottom: var(--mb-2);
     text-decoration: underline var(--yellow-clr);
 }
 
 .categories-subtitle{
-    color: var(--blue-clr);
+    color: var(--yellow-clr);
 }
 
 .categories-p{
@@ -364,7 +364,7 @@ label{
 
 /*All items page*/
 .all-items-item{
-  color: var(--blue-clr);
+  color: var(--yellow-clr);
   text-align: center;
 }
 
@@ -374,7 +374,7 @@ label{
 }
 
 .item-per-categories{
-  color: var(--blue-clr);
+  color: var(--yellow-clr);
   font-size: var(--biggest-font-size);
 }
 

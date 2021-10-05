@@ -1,4 +1,8 @@
-{include file='templates/header.tpl'}
+{if $verify == true}
+        {include file="templates/adminHeader.tpl"}   
+    {else}
+        {include file="templates/header.tpl"}
+{/if}
 
 <main class="main">
     <section class="home" id="home">

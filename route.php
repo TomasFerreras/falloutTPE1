@@ -39,17 +39,16 @@ switch ($params[0]) {
         $itemController->showItems_Categories($params[1]); 
     break;
     
-
     case 'Item':
         $itemController->showItem($params[1]);
     break;
     
-    case 'login': 
-        $userController->showLogin(); 
+    case 'register': 
+        $userController->register(); 
     break;
 
-    case 'adminlogin': 
-        $userController->showAdminLogin(); 
+    case 'login': 
+        $userController->login(); 
     break;
     
     case 'admin': 
@@ -78,6 +77,10 @@ switch ($params[0]) {
 
     case 'userLogin':
         $userController->userLogin();
+    break;
+
+    case 'logOut':
+        $userController->logOut();
     break;
 
     default: 

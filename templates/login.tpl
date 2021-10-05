@@ -4,17 +4,17 @@
     <section class="home" id="home">
         <div class="home-container re-container re-grid">
             <div class="home-info">
-                <h1 class="admin-login-title">Admin login</h1>
+                <h1 class="admin-login-title">login</h1>
 
                 <form class="admin-login-form" action="userLogin" method="POST">
                     <label class="admin-label" for="userEmail">Admin name</label>
-                    <input class="admin-input" type="text" name="userEmail">
+                    <input class="admin-input" type="text" name="userEmail" required>
 
                     <label class="admin-label" for="userPassword">Password</label>
-                    <input class="admin-input" type="password" name="userPassword">
+                    <input class="admin-input" type="password" name="userPassword" required>
                     <button class="loginAdmin">Log in</button>
                 </form>
-                <a href="admin" class="admin-404">support@gmail.com</a>
+                <a href="register" class="loginBtn">Register</a>
             </div>
 
             <div class="admin-img">

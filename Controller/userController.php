@@ -10,6 +10,14 @@ class userController{
     function __construct(){
         $this->view = new userView;
         $this->userModel = new userModel;
+
+        if(isset($_SESSION['loged'])){
+            if ($_SESSION['loged'] == true) {
+                $this->verify = true;
+            }else{
+                $this->verify = false;
+            }
+        }
     }
 
     function addRegister(){
@@ -17,7 +25,7 @@ class userController{
             $user_email = $_POST['user_email'];
             $user_password = password_hash($_POST['user_password'], PASSWORD_BCRYPT);
             $this->userModel->insertUser($user_email, $user_password);
-            $this->view->AdminLogin();
+            $this->view->login();
         }else{
             $this->view->notFound();
         }
@@ -28,9 +36,9 @@ class userController{
         if (!empty($_POST['userEmail'] && !empty($_POST['userPassword']))){
             $user_email_login = $_POST['userEmail'];
             $user_password_login = $_POST['userPassword'];
-            $hashedPassword = $this->userModel->verifyUser($user_email_login);
+            $user = $this->userModel->verifyUser($user_email_login);
 
-            if($hashedPassword && password_verify($user_password_login, $hashedPassword->user_password)){
+            if($user && password_verify($user_password_login, $user->user_password)){
                 $_SESSION["loged"] = true;
                 $_SESSION["userEmail"] = $user_email_login;
                 $this->showAdmin();
@@ -40,23 +48,34 @@ class userController{
         }
     }
     
-    function showLogin(){
-        session_start();
+    function register(){
         if (isset($_SESSION["loged"])){
             if ($_SESSION["loged"] == true){
                 $this->view->adminPage();
             }
         }else{
-        $this->view->Login();
+        $this->view->register();
         }
     }
 
-    function showAdminLogin(){
-        $this->view->AdminLogin();
+    function logOut(){
+        session_destroy();
+        $this->view->login();
+    }
+
+    function login(){
+        $this->view->login();
     }
 
     function showAdmin(){
-        $this->view->adminPage();
+        if (isset($_SESSION["loged"])){
+            if ($_SESSION["loged"] == true){
+                $this->view->adminPage();
+            }
+        }else{
+            $this->view->login();
+        }
+        
     }
     
     function showNotFound(){

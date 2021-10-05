@@ -6,11 +6,11 @@ class userView{
         $this->smarty = new Smarty();
     }
 
-    function Login(){
+    function register(){
         $this->smarty->display('templates/register.tpl');
     }
 
-    function AdminLogin(){
+    function login(){
         $this->smarty->display('templates/login.tpl');
     }
 
@@ -21,4 +21,6 @@ class userView{
     function notFound(){
         $this->smarty->display('templates/notFound404.tpl');
     }
+
+    
 }

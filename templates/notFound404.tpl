@@ -1,4 +1,9 @@
-{include file='templates/header.tpl'}
+{if $verify == true}
+        {include file="templates/adminHeader.tpl"}   
+    {else}
+        {include file="templates/header.tpl"}
+{/if}
+
 
 <div class="notFound-main">
     <div class="div-notFound">

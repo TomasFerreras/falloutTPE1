@@ -6,7 +6,8 @@ class categoryView{
         $this->smarty = new Smarty();
     }
 
-    function AllCategories($categories){
+    function AllCategories($categories, $verify){
+        $this->smarty->assign('verify', $verify);
         $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/allCategories.tpl');
     }

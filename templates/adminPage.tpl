@@ -1,4 +1,4 @@
-{include file='templates/header.tpl' }
+{include file="templates/adminHeader.tpl"}   
  <main class="main">
         <section class="home" id="home">
             <div class="home-container re-container re-grid">
