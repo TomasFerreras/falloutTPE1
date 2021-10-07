@@ -15,7 +15,7 @@ class itemModel{
     }
 
     function insertItem($name,$description,$weight,$category){
-        $sentencia = $this->itemDB->prepare("INSERT INTO items(name_item,description_item, weight_item, fk_id_category ) VALUES(?, ?, ?, ?)");
+        $sentencia = $this->itemDB->prepare("INSERT INTO items(name_item,description_item, weight_item, id_category ) VALUES(?, ?, ?, ?)");
         $sentencia->execute(array($name,$description,$weight, $category ));
     }
 
@@ -25,7 +25,7 @@ class itemModel{
     }
 
     function editItem($nameItem, $name, $description, $weight, $category ){
-      $sentencia = $this->itemDB->prepare("UPDATE items SET name_item = '".$name."', description_item= '".$description."', weight_item= '".$weight."', fk_id_category= '".$category."' WHERE name_item=?");
+      $sentencia = $this->itemDB->prepare("UPDATE items SET name_item = '".$name."', description_item= '".$description."', weight_item= '".$weight."', id_category= '".$category."' WHERE name_item=?");
       $sentencia->execute(array($nameItem));
     }
 }

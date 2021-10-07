@@ -2,13 +2,16 @@
 
 require_once "./View/userView.php";
 require_once "./Model/usersModel.php";
+require_once "./Model/categoryModel.php";
 
 class userController{
     private $userModel;
+    private $categoryModel;
     private $view;
 
     function __construct(){
         $this->view = new userView;
+        $this->categoryModel = new categoryModel;
         $this->userModel = new userModel;
 
         if(isset($_SESSION['loged'])){
@@ -32,7 +35,6 @@ class userController{
     }
 
     function userLogin(){
-        session_start();
         if (!empty($_POST['userEmail'] && !empty($_POST['userPassword']))){
             $user_email_login = $_POST['userEmail'];
             $user_password_login = $_POST['userPassword'];
@@ -51,7 +53,8 @@ class userController{
     function register(){
         if (isset($_SESSION["loged"])){
             if ($_SESSION["loged"] == true){
-                $this->view->adminPage();
+                $categories = $this->categoryModel->getCategories();
+                $this->view->adminPage($categories);
             }
         }else{
         $this->view->register();
@@ -70,7 +73,8 @@ class userController{
     function showAdmin(){
         if (isset($_SESSION["loged"])){
             if ($_SESSION["loged"] == true){
-                $this->view->adminPage();
+                $categories = $this->categoryModel->getCategories();
+                $this->view->adminPage($categories );
             }
         }else{
             $this->view->login();

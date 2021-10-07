@@ -11,10 +11,16 @@
                             <input type="text" name="description">
     
                             <label for="weight">Weight</label>
-                            <input type="text" name="weight">
+                            <input type="number" step="any" name="weight">
     
-                            <label for="weight">Category</label>
-                            <input type="text" name="category">
+                            <label for="category">Category</label>
+
+                                <select name="category" required>
+                                    <option></option>
+                            {foreach from=$categories item=category }    
+                                    <option value="{$category->id_category}">{$category->name_category}</option>
+                            {/foreach}
+                                </select> 
     
                             <button type="submit">+</button>
                         </form>

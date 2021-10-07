@@ -14,7 +14,8 @@ class userView{
         $this->smarty->display('templates/login.tpl');
     }
 
-    function adminPage(){
+    function adminPage($categories){
+        $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/adminPage.tpl');
     }
     

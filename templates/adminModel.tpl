@@ -20,7 +20,7 @@
                             <td>{$item->name_item}  </td>
                             <td>{$item->description_item} </td>
                             <td>{$item->weight_item} </td>
-                            <td>{$item->fk_id_category} </td>
+                            <td>{$item->id_category} </td>
                         </tr>
                     {/if}
                 {/foreach}
@@ -50,10 +50,17 @@
                     {if $item->name_item == $search}
                         <tr>
                             <td>{$item->id_item}</td>  
-                            <td><input name="nameItem" placeholder ="{$item->name_item}">  </td>
-                            <td><input name="desciptionItem" placeholder ="{$item->description_item}"> </td>
-                            <td><input name="weightItem" placeholder ="{$item->weight_item}"> </td>
-                            <td><input name="itemCategory" placeholder ="{$item->fk_id_category}"> </td>
+                            <td><input type="text" name="nameItem" placeholder ="{$item->name_item}" required>  </td>
+                            <td><input type="text"name="desciptionItem" placeholder ="{$item->description_item}" required> </td>
+                            <td><input type="number" step="any" name="weightItem" placeholder ="{$item->weight_item}" required> </td>
+                            <td>
+                            <select name="itemCategory" required>
+                                <option></option>
+                            {foreach from=$categories item=category }    
+                                <option value="{$category->id_category}">{$category->name_category}</option>
+                            {/foreach}
+                            </select> 
+                            </td>
                         </tr>
                     {/if}
                 {/foreach}

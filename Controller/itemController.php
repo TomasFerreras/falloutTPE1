@@ -1,14 +1,17 @@
 <?php
 
 require_once "./Model/itemModel.php";
+require_once "./Model/categoryModel.php";
 require_once "./View/itemView.php";
 class itemController{
 
     private $itemModel;
+    private $categoryModel;
     private $view;
     private $verify;
 
     function __construct(){
+        $this->categoryModel = new categoryModel;
         $this->itemModel = new itemModel;
         $this->view = new view;
         
@@ -42,8 +45,9 @@ class itemController{
     }
 
     function search(){
+        $categories = $this->categoryModel->getCategories();
         $items = $this->itemModel->getItems();
-        $this->view->searchAdminPage($items, $_POST['search'] );
+        $this->view->searchAdminPage($items, $categories, $_POST['search'] );
     }
 
     function createItem(){
@@ -58,5 +62,6 @@ class itemController{
 
     function editItem($nameItem){
         $this->itemModel->editItem($nameItem,$_POST['nameItem'], $_POST['desciptionItem'], $_POST['weightItem'], $_POST['itemCategory'] );
+        $this->view->showAdminPage();
     }    
 }

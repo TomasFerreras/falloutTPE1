@@ -34,7 +34,8 @@ class view{
         $this->smarty->display('templates/itemsPerCategory.tpl');
     }
 
-    function searchAdminPage($items, $search){
+    function searchAdminPage($items, $categories, $search){
+        $this->smarty->assign('categories', $categories);
         $this->smarty->assign('search', $search);
         $this->smarty->assign('items', $items);
         $this->smarty->display('templates/adminModel.tpl');

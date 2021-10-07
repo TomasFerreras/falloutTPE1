@@ -16,7 +16,7 @@
                     <div class="items-list">
                         <ul class="all-items-list">
                             {foreach from=$items_Category item=$Items_Category}
-                                {if $Items_Category->id_category == $category}
+                                {if $Items_Category->name_category == $category}
                                     <li><a class="all-items-item" href="Item/{$Items_Category->name_item}">{$Items_Category->name_item} </a>/ {$category}</li>
                                 {/if}
                             {/foreach}
