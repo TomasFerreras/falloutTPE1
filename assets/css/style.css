@@ -237,13 +237,13 @@ img{
 .categories-title{
     font-size: var(--biggest-font-size);
     font-weight: var(--font-bold);
-    color: var(--yellow-clr);
+    color: var(--blue-clr);
     margin-bottom: var(--mb-2);
-    text-decoration: underline var(--yellow-clr);
+    text-decoration: underline var(--blue-clr);
 }
 
 .categories-subtitle{
-    color: var(--yellow-clr);
+    color: var(--blue-clr);
 }
 
 .categories-p{
@@ -321,22 +321,22 @@ label{
 }
 
 .admin-login-title{
-  color: var(--yellow-clr);
+  color: var(--blue-clr);
   margin-bottom: var(--mb-4);
 }
 
 .admin-input{
-  border: 2px solid var(--yellow-clr);
+  border: 2px solid var(--blue-clr);
   margin-bottom: var(--mb-2);
 }
 
 .admin-label{
-  color: var(--yellow-clr);
+  color: var(--blue-clr);
 }
 
 .loginAdmin{
-  background-color: var(--yellow-clr);
-  color: var(--blue-clr);
+  background-color: var(--blue-clr);
+  color: var(--background-clr);
   border: none;
   font-weight: var(--font-semi-bold);
   margin-top: var(--mb-2);
@@ -355,7 +355,7 @@ label{
 }
 
 .admin-message{
-  color: var(--yellow-clr);
+  color: var(--blue-clr);
 }
 
 .admin-404{
@@ -364,7 +364,7 @@ label{
 
 /*All items page*/
 .all-items-item{
-  color: var(--yellow-clr);
+  color: var(--blue-clr);
   text-align: center;
 }
 
@@ -374,7 +374,7 @@ label{
 }
 
 .item-per-categories{
-  color: var(--yellow-clr);
+  color: var(--blue-clr);
   font-size: var(--biggest-font-size);
 }
 
@@ -382,7 +382,7 @@ label{
   display: flex;
   justify-content: left;
   margin-top: .5rem;
-  color: var(--yellow-clr);
+  color: var(--blue-clr);
 }
 
 .not-found-title{
@@ -442,7 +442,7 @@ label{
 
   .item-per-categories{
     font-size: 3rem;
-    text-decoration: underline var(--yellow-clr);
+    text-decoration: underline var(--blue-clr);
     text-align: center;
   }
 

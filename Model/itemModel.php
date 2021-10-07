@@ -8,7 +8,7 @@ class itemModel{
     }
 
     function getItems(){
-        $sentencia = $this->itemDB->prepare( "SELECT * from items");
+        $sentencia = $this->itemDB->prepare( "SELECT items.*, category.name_category FROM items JOIN category ON items.id_category = category.id_category");
         $sentencia->execute();
         $items = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $items;
