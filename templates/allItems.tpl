@@ -12,7 +12,7 @@
                 <div class="items-list">
                     <ul class="all-items-list">
                         {foreach from=$items item=$item}
-                            <li><a class="all-items-item" href="Item/{$item->name_item}">{$item->name_item}</a>/ {$item->name_category}</li>
+                            <li><a class="all-items-item" href="Item/{$item->name_item}">{$item->name_item} / <span class="all-items-category">{$item->name_category}</span></a></li>
                         {/foreach}
                     </ul>
                 </div>

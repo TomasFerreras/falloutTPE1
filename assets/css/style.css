@@ -53,6 +53,7 @@ body{
   background-color: var(--background-clr);
   color: var(--black-clr);
   line-height: 1.6;
+  overflow: hidden;
 }
 
 h1,h2,h3,ul,p{
@@ -239,7 +240,6 @@ img{
     font-weight: var(--font-bold);
     color: var(--blue-clr);
     margin-bottom: var(--mb-2);
-    text-decoration: underline var(--blue-clr);
 }
 
 .categories-subtitle{
@@ -305,6 +305,7 @@ label{
 
 .admin-logo{
   color: var(--blue-clr);
+  font-weight: var(--font-bold);
 }
 
 .nav-admin{
@@ -313,11 +314,11 @@ label{
 
 .nav-admin-btn{
   background-color: var(--blue-clr);
-  color: var(--yellow-clr);
+  color: var(--background-clr);
 }
 
 .adminBody{
-  background-color: var(--blue-clr);
+  background-color: var(--background-clr);
 }
 
 .admin-login-title{
@@ -328,6 +329,8 @@ label{
 .admin-input{
   border: 2px solid var(--blue-clr);
   margin-bottom: var(--mb-2);
+  display: block;
+  width: 100%;
 }
 
 .admin-label{
@@ -366,6 +369,11 @@ label{
 .all-items-item{
   color: var(--blue-clr);
   text-align: center;
+  font-size: .875rem;
+}
+
+.all-items-category{
+  color: var(--black-clr);
 }
 
 .gridAllItems{
@@ -388,6 +396,63 @@ label{
 .not-found-title{
   font-size: 3rem;
   color: var(--blue-clr);
+}
+
+.specific-item-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.specific-item-title{
+  font-size: var(--biggest-font-size);
+}
+
+.admin-form > input{
+  border: none;
+  border: 2px solid var(--blue-clr);
+}
+
+.admin-form > label{
+  color: var(--blue-clr);
+}
+
+.admin-form > select{
+  border: none;
+  background-color: #d3d2d2;
+}
+
+.admin-form > button{
+  border: none;
+  background-color: #d3d2d2;
+}
+
+#searchItem{
+  background-color: #d3d2d2;
+  padding: .2rem 1rem;
+  margin-top: .5rem;
+}
+
+.admin-edit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item-to-add-table{
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.item-to-add-table tr{
+  border-bottom: solid 1px #000000;
+}
+
+.item-to-add-table td{
+  border-right: solid 1px #000000; 
+  border-left: solid 1px #000000;
 }
 
 /*MEDIA QUERIES*/

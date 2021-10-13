@@ -8,17 +8,16 @@
 
 <main class="main">
     <section class="home" id="home">
-        <div class="home-container re-container re-grid gridAllItems">
-                
-                <ul>
-            {foreach from=$items item=$object}
-                {if $object->name_item == $item}
-                    <h1>{$object->name_item}</h1>
-                   <li>Description:  {$object->description_item}</li>
-                   <li>Weight : {$object->weight_item}</li>
-                {/if}    
-            {/foreach}
-            <ul>
+        <div class="home-container re-container specific-item-container">
+            <div class="specific-item">
+                {foreach from=$items item=$object}
+                    {if $object->name_item == $item}
+                        <h1 class="specific-item-title">{$object->name_item}</h1>
+                        <p class="specific-item-subtitle">Description:  {$object->description_item}</p>
+                        <p>Weight : {$object->weight_item}</p>
+                    {/if}    
+                {/foreach}
+            </div>
         </div>
     </section>
 </main>

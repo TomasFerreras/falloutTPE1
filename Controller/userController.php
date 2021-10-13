@@ -74,7 +74,7 @@ class userController{
         if (isset($_SESSION["loged"])){
             if ($_SESSION["loged"] == true){
                 $categories = $this->categoryModel->getCategories();
-                $this->view->adminPage($categories );
+                $this->view->adminPage($categories);
             }
         }else{
             $this->view->login();

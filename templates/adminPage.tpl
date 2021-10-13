@@ -3,7 +3,7 @@
         <section class="home" id="home">
             <div class="home-container re-container re-grid">
                     <div>
-                        <form action="createItem" method="post">
+                        <form class="admin-form" action="createItem" method="post">
                             <label for="name">Name</label>
                             <input type="text" name="name">
     
@@ -28,7 +28,7 @@
                     </div>
 
                     <div>
-                        <form action="adminSearch" method="post">
+                        <form class="admin-form" action="adminSearch" method="post">
                             <label for="search">Search</label>
                             <input type="text" name="search">
                             
