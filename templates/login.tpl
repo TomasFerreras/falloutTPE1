@@ -7,7 +7,7 @@
                 <h1 class="admin-login-title">login</h1>
 
                 <form class="admin-login-form" action="userLogin" method="POST">
-                    <label class="admin-label" for="userEmail">Admin name</label>
+                    <label class="admin-label" for="userEmail">Email</label>
                     <input class="admin-input" type="text" name="userEmail" required>
 
                     <label class="admin-label" for="userPassword">Password</label>

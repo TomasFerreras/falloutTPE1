@@ -45,9 +45,15 @@ class itemController{
     }
 
     function search(){
-        $categories = $this->categoryModel->getCategories();
-        $items = $this->itemModel->getItems();
-        $this->view->searchAdminPage($items, $categories, $_POST['search'] );
+        if (isset($_SESSION["loged"])){
+            if ($_SESSION["loged"] == true){
+                $categories = $this->categoryModel->getCategories();
+                $items = $this->itemModel->getItems();
+                $this->view->searchAdminPage($items, $categories, $_POST['search'] );
+            }
+        }else{
+            $this->showHome();
+        }
     }
 
     function createItem(){

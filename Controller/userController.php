@@ -44,6 +44,8 @@ class userController{
                 $_SESSION["loged"] = true;
                 $_SESSION["userEmail"] = $user_email_login;
                 $this->showAdmin();
+            }else{
+                $this->view->login();
             }
         }else{
             $this->view->notFound();
