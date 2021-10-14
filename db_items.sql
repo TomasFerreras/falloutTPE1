@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2021 at 09:50 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Oct 14, 2021 at 11:27 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,8 +79,7 @@ INSERT INTO `items` (`id_item`, `name_item`, `description_item`, `weight_item`, 
 (17, 'Vault 81 cure', 'The Vault 81 cure is the only cure for the mole rat disease contracted after being bitten by a Vault 81 lab mole rat.', 0.3, 1),
 (18, 'Chinese stealth armor', 'The Chinese stealth armor is a piece of armor in the Fallout 4 Creation Club content \"Chinese Stealth Armor.\"', 24, 3),
 (19, 'Gas mask', 'A simple gas mask that covers the entire face. It is held on to the wearer by adjustable straps.', 3, 3),
-(20, 'Eyebot helmet', 'Eyebot helmets can be found on members of the Rust Devils faction starting at level 15 when the Automatron questline can be started.', 3, 3),
-(22, 'Tomas Ferreras', 'pilin pilin', 200, 1);
+(20, 'Eyebot helmet', 'Eyebot helmets can be found on members of the Rust Devils faction starting at level 15 when the Automatron questline can be started.', 3, 3);
 
 --
 -- Indexes for dumped tables
@@ -113,7 +112,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_item` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_item` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
