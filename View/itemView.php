@@ -8,11 +8,11 @@ class view{
     }
 
     function Home($verify){
-        $this->smarty->assign('verify', $verify);
+        $this->smarty->assign('verify', $verify );
         $this->smarty->display('templates/landingPageMain.tpl');
     }
     
-    function AllItems($items, $verify){
+    function AllItems($items, $verify ){
         $this->smarty->assign('verify', $verify);
         $this->smarty->assign('items', $items);
         $this->smarty->display('templates/allItems.tpl');

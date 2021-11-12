@@ -10,16 +10,11 @@ class categoryController{
     function __construct(){
         $this->categoryModel = new categoryModel;
         $this->view = new categoryView;
-
-        if(isset($_SESSION['loged'])){
-            $this->verify = true;
-        }else{
-            $this->verify = false;
-        }
     }
 
     function showAllCategories(){
+        $this->helper->checkLoggedIn();
         $categories = $this->categoryModel->getCategories();
-        $this->view->AllCategories($categories, $this->verify);
+        $this->view->AllCategories($categories, $this->verify );
     }
 }

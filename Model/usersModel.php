@@ -14,15 +14,14 @@ class userModel{
         return $users;
     }
 
-    function insertUser($user_email, $user_password){
-        $sentencia = $this->userDB->prepare("INSERT INTO users (user_email,user_password) VALUES(?, ?)");
-        $sentencia->execute(array($user_email, $user_password));
+    function insertUser($user_email, $user_password, $role){
+        $sentencia = $this->userDB->prepare("INSERT INTO users (user_email,user_password, role) VALUES(?, ?, ?)");
+        $sentencia->execute(array($user_email, $user_password, $role));
     }
 
     function verifyUser($user_email_login){
         $query = $this->userDB->prepare("SELECT * FROM users WHERE user_email=?");
         $query->execute([$user_email_login]);
-
         return $query->fetch(PDO::FETCH_OBJ);
     }
 }
