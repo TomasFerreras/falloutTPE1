@@ -19,34 +19,29 @@ class itemController{
         $this->view = new view;
         $this->helper = new AuthHelper;
 
-        if(isset($_SESSION['role'])){
-            $this->verify = $_SESSION['role'];
-        }else{
-            $this->verify = false;
-        }
     }
 
     function showHome(){
         $this->helper->checkLoggedIn();
-        $this->view->Home($this->verify);
+        $this->view->Home($_SESSION['role']);
     }
     
     function showAllItems(){
         $this->helper->checkLoggedIn();
         $items = $this->itemModel->getItems();
-        $this->view->AllItems($items, $this->verify);
+        $this->view->AllItems($items, $_SESSION['role']);
     }
 
     function showItem($item){
         $this->helper->checkLoggedIn();
         $items = $this->itemModel->getItems();
-        $this->view->ItemsDescription($items , $item, $this->verify);
+        $this->view->ItemsDescription($items , $item, $_SESSION['role']);
     }
 
     function showItems_Categories($id_category){
         $this->helper->checkLoggedIn();
         $Items_Category = $this->itemModel->getItems();
-        $this->view->showItemPerCategory($Items_Category, $id_category, $this->verify);
+        $this->view->showItemPerCategory($Items_Category, $id_category, $_SESSION['role']);
     }
 
     function search(){

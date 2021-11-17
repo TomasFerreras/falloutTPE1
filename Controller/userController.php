@@ -4,13 +4,14 @@ require_once "./View/userView.php";
 require_once "./Controller/itemController.php";
 require_once "./Model/usersModel.php";
 require_once "./Model/categoryModel.php";
+require_once "./Model/itemModel.php";
 require_once "./Helpers/AutHelper.php";
 
 class userController{
     private $userModel;
     private $categoryModel;
     private $view;
-    private $itemview;
+    private $itemController;
     private $helper;
 
     function __construct(){
@@ -18,7 +19,7 @@ class userController{
         $this->categoryModel = new categoryModel;
         $this->userModel = new userModel;
         $this->helper = new AuthHelper;
-        $this->itemview = new itemController;
+        $this->itemController = new itemController;
     }
     
     function register(){
@@ -42,6 +43,7 @@ class userController{
     }
 
     function userLogin(){
+        session_start();
         if (!empty($_POST['userEmail'] && !empty($_POST['userPassword']))){
             $user_email_login = $_POST['userEmail'];
             $user_password_login = $_POST['userPassword'];
@@ -51,7 +53,7 @@ class userController{
                 $_SESSION["loged"] = true;
                 $_SESSION["role"] = $user->role;
                 $_SESSION["userEmail"] = $user_email_login;
-                $this->itemview->showHome();
+                $this->itemController->showHome();
             }else{
                 $this->view->notFound();
             }
@@ -61,8 +63,9 @@ class userController{
     }
 
     function logOut(){
+        session_start();
         session_destroy();
-        $this->view->login();
+        $this->login();
     }
 
 

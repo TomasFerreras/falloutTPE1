@@ -20,8 +20,8 @@ class AuthHelper{
     }
     
     function checkRole(){
-        if($_SESSION["role"] == false ){
-            header("location: ".BASE_URL."login");
+        if($_SESSION["role"] == 0 ){
+            header("location: ".BASE_URL."home");
         }
     }
 }
