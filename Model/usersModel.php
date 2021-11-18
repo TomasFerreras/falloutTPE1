@@ -24,4 +24,16 @@ class userModel{
         $query->execute([$user_email_login]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+    // function getUser($user){
+    //     $sentencia = $this->userDB->prepare("SELECT * FROM users WHERE id_user=?");
+    //     $sentencia->execute(array($user));
+    //     $users = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    //     return $users;
+    // }
+
+    function editUser($userId, $userRole){
+        $sentencia = $this->userDB->prepare("UPDATE users SET role = '". $userRole ."' WHERE id_user=?");
+        $sentencia->execute(array($userId));
+    }
 }

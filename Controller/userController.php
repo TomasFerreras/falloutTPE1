@@ -82,8 +82,14 @@ class userController{
         $this->view->showUsers($users);
     }
 
+    function userEdit(){
+        $userId = $_POST["userId"];
+        $userRole = $_POST["role"];
+        $userData = $this->userModel->editUser($userId, $userRole);
+        $this->view->showUsers($userData);
+    }
+    
     function showNotFound(){
         $this->view->notFound();
     }
-
 }
