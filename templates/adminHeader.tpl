@@ -19,6 +19,7 @@
                     <li class="nav-item"><a href="allItems" class="nav-link nav-admin">All items</a></li>
                     <li class="nav-item"><a href="allCategories" class="nav-link nav-admin">All categories</a></li>
                     <li class="nav-item"><a href="admin" class="nav-link nav-admin">Admin Page</a></li>
+                    <li class="nav-item"><a href="users" class="nav-link nav-admin">Users</a></li>
                     <li class="nav-item nav-login-item"><a href="logOut" class="nav-link nav-link-item nav-admin-btn">Log out</a></li>
                 </ul>
             </div>

@@ -20,6 +20,7 @@ class userController{
         $this->userModel = new userModel;
         $this->helper = new AuthHelper;
         $this->itemController = new itemController;
+        
     }
     
     function register(){
@@ -76,7 +77,11 @@ class userController{
         $this->view->adminPage($categories);
     }
         
-    
+    function usersPage(){
+        $users = $this->userModel->getUsers();
+        $this->view->showUsers($users);
+    }
+
     function showNotFound(){
         $this->view->notFound();
     }

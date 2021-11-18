@@ -365,6 +365,8 @@ label{
   display: none;
 }
 
+
+
 /*All items page*/
 .all-items-item{
   color: var(--blue-clr);
@@ -463,6 +465,8 @@ label{
     margin: var(--header-height) 0 0 0;
   }
 
+  
+
   .home-container{
     align-items: center;
     row-gap: 3rem;
@@ -522,19 +526,14 @@ label{
     text-align: left;
     grid-template-columns: repeat(2, 1fr);
   }
+
 }
 
 @media screen and (min-width: 768px){
+
+
   .item{
     display : none;
-  }
-
-  .pija{
-    margin-top:5rem ;
-  }
-
-  .pija table tr td{
-    border: 1px solid black;
   }
 
   .nav{
@@ -630,5 +629,9 @@ label{
 
   .not-found-title{
     font-size: 6rem;
+  }
+
+  .editUser{
+    display: none;
   }
 }

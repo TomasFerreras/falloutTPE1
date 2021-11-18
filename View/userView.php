@@ -19,6 +19,11 @@ class userView{
         $this->smarty->display('templates/adminPage.tpl');
     }
     
+    function showUsers($users){
+        $this->smarty->assign('users', $users);
+        $this->smarty->display('templates/usersPage.tpl');
+    }
+
     function notFound(){
         $this->smarty->display('templates/notFound404.tpl');
     }

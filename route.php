@@ -50,6 +50,10 @@ switch ($params[0]) {
     case 'login': 
         $userController->login(); 
     break;
+
+    case 'users': 
+        $userController->usersPage(); 
+    break;
     
     case 'admin': 
         $userController->showAdmin(); 

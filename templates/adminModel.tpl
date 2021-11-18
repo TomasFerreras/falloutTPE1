@@ -14,17 +14,19 @@
                             <td>category</td>
                         </tr>
                     </thead>
-                    {foreach from=$items item=$item }
-                        {if $item->name_item == $search}
-                            <tr>
-                                <td>{$item->id_item}  </td>  
-                                <td>{$item->name_item}  </td>
-                                <td>{$item->description_item} </td>
-                                <td>{$item->weight_item} </td>
-                                <td>{$item->id_category} </td>
-                            </tr>
-                        {/if}
-                    {/foreach}
+                    <tbody>
+                        {foreach from=$items item=$item }
+                            {if $item->name_item == $search}
+                                <tr>
+                                    <td>{$item->id_item}  </td>  
+                                    <td>{$item->name_item}  </td>
+                                    <td>{$item->description_item} </td>
+                                    <td>{$item->weight_item} </td>
+                                    <td>{$item->id_category} </td>
+                                </tr>
+                            {/if}
+                        {/foreach}
+                    </tbody>
                 </table>
 
                 <article>
