@@ -33,6 +33,7 @@
                     {/if}
                         
                     </td>
+                    <td><a href = "deleteUser/{$user->id_user}">X</a></td>
                 </tr>
                 {/foreach}
             </table>

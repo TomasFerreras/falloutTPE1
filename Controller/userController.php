@@ -89,6 +89,12 @@ class userController{
         $this->view->showUsers($userData);
     }
     
+    function deleteUser($id_usuario){
+        $this->userModel->deleteUser($id_usuario);
+        $users = $this->userModel->getUsers();
+        $this->view->showUsers($users);
+    }
+
     function showNotFound(){
         $this->view->notFound();
     }

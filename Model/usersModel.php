@@ -36,4 +36,10 @@ class userModel{
         $sentencia = $this->userDB->prepare("UPDATE users SET role = '". $userRole ."' WHERE id_user=?");
         $sentencia->execute(array($userId));
     }
+
+    function deleteUser($id){
+        $sentencia = $this->userDB->prepare("DELETE FROM users WHERE id_user=?");
+        $sentencia->execute(array($id));
+    }
+    
 }

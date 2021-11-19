@@ -91,6 +91,10 @@ switch ($params[0]) {
         $userController->userEdit();
     break;
 
+    case 'deleteUser': 
+        $userController->deleteUser($params[1]); 
+    break;
+
     default: 
         $userController->shownotFound(); 
     break;
