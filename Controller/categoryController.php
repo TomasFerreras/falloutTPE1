@@ -18,6 +18,6 @@ class categoryController{
     function showAllCategories(){
         $this->helper->checkLoggedIn();
         $categories = $this->categoryModel->getCategories();
-        $this->view->AllCategories($categories, $_SESSION['role'] );
+        $this->view->AllCategories($categories, $_SESSION['role']);
     }
 }
