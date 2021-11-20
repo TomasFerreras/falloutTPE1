@@ -8,7 +8,6 @@ $router = new Router();
 // define la tabla de ruteo
 // $router->addRoute('tareas', 'GET', 'ApiTaskController', 'obtenerTareas');
 // $router->addRoute('tareas', 'POST', 'ApiTaskController', 'crearTarea');
-
 $router->addRoute('item/:ID', 'GET', 'ApiController', 'commentsSection');
 
 // rutea

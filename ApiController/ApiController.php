@@ -1,7 +1,7 @@
 <?php
 
 require_once "./Model/commentsModel.php";
-require_once "./View/itemView.php";
+require_once "./View/apiView.php";
 require_once "./Helpers/AutHelper.php";
 
 class ApiController{
@@ -11,11 +11,16 @@ class ApiController{
 
     function __construct(){
         $this->commentsModel = new commentsModel;
-        $this->view = new view;
+        $this->view = new apiView;
         $this->helper = new AuthHelper;
     }
 
-    function commentsSection(){
-        $comments = $this->commentsModel->getComments();
+    function commentsSection($params = null){
+        $idItem = $params[":ID"];
+        $comments = $this->commentsModel->getComments($idItem);
+        return $this->view->response($comments, 200);
+        
     }
+
+
 }
