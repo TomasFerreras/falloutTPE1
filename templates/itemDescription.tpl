@@ -18,7 +18,7 @@
                     {/if}    
                 {/foreach}
             </div>
-        <form action = "item/{$item}">
+        <form action = "api/item/{$item}">
             <input type ="text" required>
             <select>
                 <option>0</option>
@@ -31,8 +31,7 @@
             <button type = "submmit">Send Comment</button>
         </form>
 
-        <ul id = "comment-list">
-        <ul>
+            {include file='templates\vue\commentsVue.tpl'}
         </div>
     </section>
 

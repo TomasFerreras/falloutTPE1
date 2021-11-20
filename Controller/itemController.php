@@ -33,6 +33,7 @@ class itemController{
     }
 
     function showItem($item){
+        
         $this->helper->checkLoggedIn();
         $items = $this->itemModel->getItems();
         $this->view->ItemsDescription($items , $item, $_SESSION['role']);

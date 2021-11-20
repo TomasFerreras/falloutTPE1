@@ -19,8 +19,11 @@ class ApiController{
         $idItem = $params[":ID"];
         $comments = $this->commentsModel->getComments($idItem);
         return $this->view->response($comments, 200);
-        
     }
 
+    function addComment($params =null){
+        $idItem = $params[":ID"];
+        
+    }
 
 }
