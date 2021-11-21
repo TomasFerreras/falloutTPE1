@@ -2,8 +2,6 @@
 let title = document.querySelector("#item_tittle");
 let id_item = title.dataset.item;
 
-let comment_id = document.querySelector("#comment.id");
-console.log (comment_id);
 
 const API_URL = `api/Item`
 
@@ -20,7 +18,6 @@ let app = new Vue({
 
 async function getComments(){
     try {
-        console.log("pijka");
         let response = await fetch(`API_URL/${id_item}`);
         let comments = await response.json();
         app.comments = comments;
@@ -30,18 +27,35 @@ async function getComments(){
     }
 }
 
-// async function Delete(){
-//     try {
-//         let res2 = await fetch(url2); //GET url
-//         let json2 = await res2.json();//texto json a objeto
-//              await fetch(`${url2}/${editions.id}`, {
-//                     "method": "DELETE"
-//                 });
+
+
+async function deleteComment(idComment){
+    try {
+        await fetch(`${API_URL}}/${idComment}`, {
+            "method": "DELETE"
+        });
           
         
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
+
+async function addComment(){
+    let comment = {
+        comentario : document.querySelector("input[name= comment]").value,
+        valoracion : document.querySelector("select[name= rating]").value,
+        id_item : id_item
+    }
+    try {
+        await fetch(API_URL,{
+            method: POST,
+            headers:{"Content-type":"application/JSON"},                
+            body: JSON.stringify(comment)
+        })
+    } catch (e) {
+        console.log(e);
+    }
+}
 getComments();
