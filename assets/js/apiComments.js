@@ -6,6 +6,28 @@ const API_URL = `api/Item`
 
 
 document.querySelector("#deleteBtn").addEventListener('click', deleteComment);
+document.querySelector("#addForm").addEventListener('submit', async function (e){
+    e.preventDefault();
+    console.log("PIJA");
+
+    let comment = {
+        comentario : document.querySelector("input[name= comment]").value,
+        valoracion : document.querySelector("select[name= rating]").value,
+        id_item : id_item
+    }
+
+    try {
+        await fetch(API_URL,{
+            "method": "POST",
+            "headers":{"Content-type":"application/JSON"},
+            "body": JSON.stringify(comment)
+        })
+    } catch (e) {
+        console.log(e);
+    }
+
+    console.log(comment)
+});
 
 
 let app = new Vue({
@@ -40,21 +62,3 @@ async function deleteComment(comment_id){
 }
 
 getComments();
-
-
-async function addComment(){
-    let comment = {
-        comentario : document.querySelector("input[name= comment]").value,
-        valoracion : document.querySelector("select[name= rating]").value,
-        id_item : id_item
-    }
-    try {
-        await fetch(API_URL,{
-            method: POST,
-            headers:{"Content-type":"application/JSON"},
-            body: JSON.stringify(comment)
-        })
-    } catch (e) {
-        console.log(e);
-    }
-}

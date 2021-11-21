@@ -18,4 +18,9 @@ class commentsModel{
         $sentencia = $this->comments->prepare("DELETE FROM comments WHERE id=?");
         $sentencia->execute(array($idComment));
     }
+
+    function insertComment($comment, $rating, $id_item){
+        $sentencia = $this->comments->prepare("INSERT INTO comments (comentario, valoracion, id_item) VALUES(?, ?, ?)");
+        $sentencia->execute(array($comment, $rating, $id_item));
+    }
 }
