@@ -39,10 +39,6 @@
         </form>
         {include file='templates\vue\commentsVue.tpl'}
     </div>
-
-    
-
-  
 </main>
 
 <script src = "assets\js\apiComments.js"></script>

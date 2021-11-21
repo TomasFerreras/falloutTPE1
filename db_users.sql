@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2021 at 11:27 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: Nov 21, 2021 at 10:40 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,15 +30,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `user_email` varchar(50) NOT NULL,
-  `user_password` varchar(100) NOT NULL
+  `user_password` varchar(100) NOT NULL,
+  `role` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `user_email`, `user_password`) VALUES
-(2, 'peusco2001@gmail.com', '$2y$10$k2/9XZ2hK1c.xO9n0.WGIuKOe/OWxwrfH5kOHk7Rs/d874R/T.w32');
+INSERT INTO `users` (`id_user`, `user_email`, `user_password`, `role`) VALUES
+(6, 'peusco', '$2y$10$Hyl/UUV73N9VUvnuo7REb.YA6TvtLWo3gSL24c5nBKdBJd3a6Pa3S', 0),
+(8, 'valen', '$2y$10$./tLxf3XMfS1AMoXS8Te..j2ZnzSWcM46REOTpYekPEn2Hn3HKffS', 0),
+(10, 'admin', '$2y$10$ukMk2G4l2QIB8mmYMmurE.dvumZk0b8gPLKCkKhIyKlsL3FRdCCN2', 1),
+(12, 'puni', '$2y$10$3bFVfWubtM27QTaDyJclMucXmnJpOPcaDWkDMxn9jz20v8pxMmFY6', 0),
+(13, 'luis', '$2y$10$/J6yeYA1Pd4ZhNOXXtn9IO.JRLLcSCGVErPfQOKjtu5t/DZcCm9ie', 1);
 
 --
 -- Indexes for dumped tables
@@ -58,7 +63,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
