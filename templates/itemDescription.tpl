@@ -8,7 +8,7 @@
 
 <main class="main">
     <section class="home" id="home">
-        <div class="home-container re-container specific-item-container">
+        <div class="re-container specific-item-container">
             <div class="specific-item">
                 {foreach from=$items item=$object}
                     {if $object->name_item == $item}
@@ -18,9 +18,16 @@
                     {/if}    
                 {/foreach}
             </div>
+        </div>
+    </section>
+
+    <div class="re-container">
+        <hr>
+        
+        <h1> Comments Section <h1>
         <form action = "api/item/{$item}">
             <input type ="text" required>
-            <select>
+            <select class="itemRating">
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
@@ -28,13 +35,12 @@
                 <option>4</option>
                 <option>5</option>
             </select>
-            <button type = "submmit">Send Comment</button>
+            <button class="ratingBtn" type = "submmit">Send Comment</button>
         </form>
+        {include file='templates\vue\commentsVue.tpl'}
+    </div>
 
-            {include file='templates\vue\commentsVue.tpl'}
-        </div>
-    </section>
-
+    
 
   
 </main>

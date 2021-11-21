@@ -53,7 +53,6 @@ body{
   background-color: var(--background-clr);
   color: var(--black-clr);
   line-height: 1.6;
-  overflow: hidden;
 }
 
 h1,h2,h3,ul,p{
@@ -365,7 +364,10 @@ label{
   display: none;
 }
 
-
+hr{
+  border-color: var(--blue-clr);
+  border-radius: .2rem;
+}
 
 /*All items page*/
 .all-items-item{
@@ -401,6 +403,8 @@ label{
 }
 
 .specific-item-container{
+  padding-top: 8rem;
+  padding-bottom: 9rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -464,9 +468,7 @@ label{
   body{
     margin: var(--header-height) 0 0 0;
   }
-
   
-
   .home-container{
     align-items: center;
     row-gap: 3rem;
@@ -634,4 +636,33 @@ label{
   .editUser{
     display: none;
   }
+
+  .itemRating{
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    flex: 1;
+    padding: 0 1em;
+    color: var(--yellow-clr);
+    background-color: var(--blue-clr);
+    padding: .5rem 1rem;
+  }
+
+  .ratingBtn{
+    border: none;
+    color: var(--yellow-clr);
+    background-color: var(--blue-clr);
+    padding: .5rem 1rem;
+  }
+
+  #comment-list{
+    margin-top: 2rem;
+  }
+
+  .comments{
+    font-size: 1.2rem;
+
+  }
+
 }
