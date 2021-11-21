@@ -1,4 +1,3 @@
-console.log("works");
 
 const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),

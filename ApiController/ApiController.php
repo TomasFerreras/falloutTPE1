@@ -20,10 +20,21 @@ class ApiController{
         $comments = $this->commentsModel->getComments($idItem);
         return $this->view->response($comments, 200);
     }
+    
+    function deleteComment($params = null){
+        $idComment = $params[":ID"];
+        $this->commentsModel->deleteComment($idComment);
+        return $this->view->response("El comentario se borro", 200);
+    }
 
     function addComment($params =null){
         $idItem = $params[":ID"];
-        
+        $body = body();
+    }
+
+    function body(){
+        $body = file_get_contents("php://input"); 
+        return json_decode($body);
     }
 
 }

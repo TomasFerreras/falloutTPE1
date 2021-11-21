@@ -1,16 +1,21 @@
 <?php
 
 class commentsModel{
-    private $commentsDB;
+    private $comments;
 
     function __construct(){
-        $this->commentsDB = new PDO('mysql:host=localhost;'.'dbname=db_comments;charset=utf8', 'root', '');
+        $this->comments = new PDO('mysql:host=localhost;'.'dbname=db_comments;charset=utf8', 'root', '');
     }
 
     function getComments($id){
-        $sentencia = $this->commentsDB->prepare("SELECT * from comments WHERE id_item = ?");
+        $sentencia = $this->comments->prepare("SELECT * from comments WHERE id_item = ?");
         $sentencia->execute(array($id));
         $comments = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comments;
+    }
+
+    function deleteComment($idComment){
+        $sentencia = $this->comments->prepare("DELETE FROM comments WHERE id=?");
+        $sentencia->execute(array($idComment));
     }
 }

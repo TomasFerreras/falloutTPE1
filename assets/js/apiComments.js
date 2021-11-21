@@ -1,11 +1,14 @@
 "use strict"
 let title = document.querySelector("#item_tittle");
-let name_item = title.dataset.item;
+let id_item = title.dataset.item;
 
+let comment_id = document.querySelector("#comment.id");
+console.log (comment_id);
 
-const API_URL = `api/Item/${name_item}`
+const API_URL = `api/Item`
 
 console.log(API_URL);
+
 
 
 let app = new Vue({
@@ -17,7 +20,8 @@ let app = new Vue({
 
 async function getComments(){
     try {
-        let response = await fetch(API_URL);
+        console.log("pijka");
+        let response = await fetch(`API_URL/${id_item}`);
         let comments = await response.json();
         app.comments = comments;
     } catch (e) {
@@ -26,5 +30,18 @@ async function getComments(){
     }
 }
 
+// async function Delete(){
+//     try {
+//         let res2 = await fetch(url2); //GET url
+//         let json2 = await res2.json();//texto json a objeto
+//              await fetch(`${url2}/${editions.id}`, {
+//                     "method": "DELETE"
+//                 });
+          
+        
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 getComments();
