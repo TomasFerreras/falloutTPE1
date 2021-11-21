@@ -27,9 +27,10 @@ class ApiController{
         return $this->view->response("El comentario se borro", 200);
     }
 
-    function addComment($params =null){
-        $idItem = $params[":ID"];
-        $body = body();
+    function addComment(){
+        
+        $body = $this->body();
+        $this->commentsModel->insertComment($body->comentario, $body->valoracion, $body->id_item);
     }
 
     function body(){

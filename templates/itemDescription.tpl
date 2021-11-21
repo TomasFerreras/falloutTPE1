@@ -25,17 +25,16 @@
         <hr>
         
         <h1> Comments Section <h1>
-        <form action = "api/item/{$item}">
-            <input type ="text" required>
-            <select class="itemRating">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+        <form id="addComment">
+            <input type ="text" name = "comment" required>
+            <select class="itemRating" name = "rating">
+                <option value = "1">1</option>
+                <option value = "2">2</option>
+                <option value = "3">3</option>
+                <option value = "4">4</option>
+                <option value = "5">5</option>
             </select>
-            <button class="ratingBtn" type = "submmit">Send Comment</button>
+            <button class="ratingBtn" type = "submit">Send Comment</button>
         </form>
         {include file='templates\vue\commentsVue.tpl'}
     </div>
