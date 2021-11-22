@@ -123,6 +123,10 @@ img{
   background-color: var(--blue-clr);
 }
 
+.hidden{
+  display: none;
+}
+
 /*NAV*/
 .nav{
     height: var(--header-height);

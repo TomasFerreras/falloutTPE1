@@ -54,6 +54,7 @@ class userController{
                 $_SESSION["loged"] = true;
                 $_SESSION["role"] = $user->role;
                 $_SESSION["userEmail"] = $user_email_login;
+                $_SESSION["userId"] = $user->id_user;
                 $this->itemController->showHome();
             }else{
                 $this->view->notFound();

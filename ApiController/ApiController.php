@@ -29,7 +29,8 @@ class ApiController{
 
     function addComment(){
         $body = $this->body();
-        $this->commentsModel->insertComment($body->comentario , $body->valoracion, $body->id_item);
+        $this->commentsModel->insertComment($body->comentario , $body->valoracion, $body->id_item, $body->id_user);
+        return $this->view->response("El comentario se agrego! :p", 200);
     }
 
     function body(){

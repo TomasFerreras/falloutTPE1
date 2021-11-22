@@ -19,8 +19,8 @@ class commentsModel{
         $sentencia->execute(array($idComment));
     }
 
-    function insertComment($comment, $rating, $id_item){
-        $sentencia = $this->comments->prepare("INSERT INTO comments (comentario, valoracion, id_item) VALUES(?, ?, ?)");
-        $sentencia->execute(array($comment, $rating, $id_item));
+    function insertComment($comment, $rating, $id_item, $id_user){
+        $sentencia = $this->comments->prepare("INSERT INTO comments (comentario, valoracion, id_item, id_user) VALUES(?, ?, ?, ?)");
+        $sentencia->execute(array($comment, $rating, $id_item, $id_user));
     }
 }
