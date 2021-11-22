@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2021 at 10:40 PM
+-- Generation Time: Nov 22, 2021 at 10:04 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -41,9 +41,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_user`, `user_email`, `user_password`, `role`) VALUES
 (6, 'peusco', '$2y$10$Hyl/UUV73N9VUvnuo7REb.YA6TvtLWo3gSL24c5nBKdBJd3a6Pa3S', 0),
 (8, 'valen', '$2y$10$./tLxf3XMfS1AMoXS8Te..j2ZnzSWcM46REOTpYekPEn2Hn3HKffS', 0),
-(10, 'admin', '$2y$10$ukMk2G4l2QIB8mmYMmurE.dvumZk0b8gPLKCkKhIyKlsL3FRdCCN2', 1),
-(12, 'puni', '$2y$10$3bFVfWubtM27QTaDyJclMucXmnJpOPcaDWkDMxn9jz20v8pxMmFY6', 0),
-(13, 'luis', '$2y$10$/J6yeYA1Pd4ZhNOXXtn9IO.JRLLcSCGVErPfQOKjtu5t/DZcCm9ie', 1);
+(10, 'admin', '$2y$10$ukMk2G4l2QIB8mmYMmurE.dvumZk0b8gPLKCkKhIyKlsL3FRdCCN2', 1);
 
 --
 -- Indexes for dumped tables
