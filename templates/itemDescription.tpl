@@ -15,6 +15,7 @@
                         <h1 class="specific-item-title" id= "item_tittle" data-item = "{$object->id_item}" data-rol="{$verify}" data-user="{$userId}">{$object->name_item}</h1>
                         <p class="specific-item-subtitle">Description:  {$object->description_item}</p>
                         <p>Weight : {$object->weight_item}</p>
+                        <img src="{$object->image}">
                     {/if}    
                 {/foreach}
             </div>

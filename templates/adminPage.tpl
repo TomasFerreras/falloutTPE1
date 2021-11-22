@@ -3,7 +3,7 @@
         <section class="home" id="home">
             <div class="home-container re-container re-grid">
                     <div>
-                        <form class="admin-form" action="createItem" method="post">
+                        <form class="admin-form" action="createItem" method="post" enctype="multipart/form-data">
                             <label for="name">Name</label>
                             <input type="text" name="name">
     
@@ -13,15 +13,15 @@
                             <label for="weight">Weight</label>
                             <input type="number" step="any" name="weight">
     
+                            <input type="file" name="input_img" id="imageToUpload">
+                            
                             <label for="category">Category</label>
-
                                 <select name="category" required>
                                     <option></option>
                             {foreach from=$categories item=category }    
                                     <option value="{$category->id_category}">{$category->name_category}</option>
                             {/foreach}
                                 </select> 
-    
                             <button type="submit">+</button>
                         </form>
                       

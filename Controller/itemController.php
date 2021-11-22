@@ -52,9 +52,26 @@ class itemController{
         $this->view->searchAdminPage($items, $categories, $_POST['search'] );   
     }
 
+    //FIXME:FIX THIS
+
     function createItem(){
-        $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category']);
-        $this->view->showAdminPage();
+        if ($_FILES["input_img"]["type"]=="image/png" || $_FILES["input_img"]["type"]=="image/jpg"){
+            if(($_FILES["input_img"]["type"]=="image/png")){
+                $type = ".png";
+            }else if (($_FILES["input_img"]["type"]=="image/jpg")){
+                $type = ".jpg";
+            }
+            $img=$_FILES["input_img"];
+            $origin=$img["tmp_name"];
+            $destiny="public/".uniqid().$type;
+            copy($origin, $destiny);
+            $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], $destiny);
+            $this->view->showAdminPage();
+        }else {
+            $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], null);
+            $this->view->showAdminPage();
+        }
+
     }
 
     function deleteItem($nameItem){
