@@ -31,11 +31,15 @@ class itemController{
         $this->view->AllItems($items, $_SESSION['role']);
     }
 
-    function showItem($item){
+    function showItem($nameItem){
         $this->helper->checkLoggedIn();
-        
-        $items = $this->itemModel->getItems();
-        $this->view->ItemsDescription($items , $item, $_SESSION['role'], $_SESSION['userId']);
+        $item = $this->itemModel->getItem($nameItem);
+        if($item){
+            var_dump($item->name_item);
+            $this->view->ItemsDescription(  $item , $_SESSION['role'], $_SESSION['userId']);
+        }else{
+            // notFound
+        }
     }
 
     function showItems_Categories($id_category){
@@ -45,7 +49,6 @@ class itemController{
     }
 
     function search(){
-        $this->helper->checkLoggedIn();
         $this->helper->checkRole();       
         $categories = $this->categoryModel->getCategories();
         $items = $this->itemModel->getItems();
@@ -63,7 +66,7 @@ class itemController{
             }
             $img=$_FILES["input_img"];
             $origin=$img["tmp_name"];
-            $destiny="public/".uniqid().$type;
+            $destiny="public/".uniqid(). $type;
             copy($origin, $destiny);
             $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], $destiny);
             $this->view->showAdminPage();

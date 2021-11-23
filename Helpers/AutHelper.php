@@ -6,16 +6,24 @@ class AuthHelper{
     }
 
     function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION["userEmail"])){
-            header("Location: ".BASE_URL."login");
+        if(!isset($_SESSION)) 
+        { 
+            session_start(); 
+        }else{
+            if(!isset($_SESSION["userEmail"])){
+                header("Location: ".BASE_URL."login");
+            }
         }
     }
 
     function checkLoggedOn(){
-        session_start();
-        if(isset($_SESSION["userEmail"])){
-            header("Location: ".BASE_URL."home");
+        if(!isset($_SESSION)) 
+        { 
+            session_start(); 
+        }else{
+            if(isset($_SESSION["userEmail"])){
+                header("Location: ".BASE_URL."home");
+            }
         }
     }
     

@@ -19,9 +19,8 @@ class view{
     }
 
 
-    function ItemsDescription($items , $item, $verify, $userId){
+    function ItemsDescription( $item, $verify, $userId){
         $this->smarty->assign('verify', $verify);
-        $this->smarty->assign('items', $items);
         $this->smarty->assign('item', $item);
         $this->smarty->assign('userId', $userId);
         $this->smarty->display('templates/itemDescription.tpl');

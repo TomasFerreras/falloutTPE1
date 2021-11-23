@@ -10,14 +10,10 @@
     <section class="home" id="home">
         <div class="re-container specific-item-container">
             <div class="specific-item">
-                {foreach from=$items item=$object}
-                    {if $object->name_item == $item}
-                        <h1 class="specific-item-title" id= "item_tittle" data-item = "{$object->id_item}" data-rol="{$verify}" data-user="{$userId}">{$object->name_item}</h1>
-                        <p class="specific-item-subtitle">Description:  {$object->description_item}</p>
-                        <p>Weight : {$object->weight_item}</p>
-                        <img src="{$object->image}">
-                    {/if}    
-                {/foreach}
+                    <h1 class="specific-item-title" id= "item_tittle" data-item = "{$item->id_item}" data-rol="{$verify}" data-user="{$userId}">{$item->name_item}</h1>
+                    <p class="specific-item-subtitle">Description:  {$item->description_item}</p>
+                    <p>Weight : {$item->weight_item}</p>
+                    <img src="{$item->image}">
             </div>
         </div>
     </section>

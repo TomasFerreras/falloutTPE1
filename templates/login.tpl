@@ -7,11 +7,11 @@
                 <h1 class="admin-login-title">login</h1>
 
                 <form class="admin-login-form" action="userLogin" method="POST">
-                    <label class="admin-label" for="userEmail">Email</label>
-                    <input class="admin-input" type="text" name="userEmail" required>
+                    <label class="admin-label" for="user_email">Email</label>
+                    <input class="admin-input" type="text" name="user_email" required>
 
-                    <label class="admin-label" for="userPassword">Password</label>
-                    <input class="admin-input" type="password" name="userPassword" required>
+                    <label class="admin-label" for="user_password">Password</label>
+                    <input class="admin-input" type="password" name="user_password" required>
                     <button class="loginAdmin">Log in</button>
                 </form>
                 <a href="register" class="loginBtn">Register</a>

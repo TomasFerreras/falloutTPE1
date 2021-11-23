@@ -35,7 +35,7 @@ class userController{
             $user_email = $_POST['user_email'];
             $user_password = password_hash($_POST['user_password'], PASSWORD_BCRYPT);
             $this->userModel->insertUser($user_email, $user_password, 0);
-            $this->view->login();
+            $this->userLogin();
         }else{
             $this->notFound("Empty email or passwword");
         }
@@ -46,13 +46,13 @@ class userController{
     }
 
     function userLogin(){
-        session_start();
-        if (!empty($_POST['userEmail'] && !empty($_POST['userPassword']))){
-            $user_email_login = $_POST['userEmail'];
-            $user_password_login = $_POST['userPassword'];
+        if (!empty($_POST['user_email']) && !empty($_POST['user_password'])){
+            $user_email_login = $_POST['user_email'];
+            $user_password_login = $_POST['user_password'];
             $user = $this->userModel->verifyUser($user_email_login);
 
             if($user && password_verify($user_password_login, $user->user_password)){
+                session_start();
                 $_SESSION["loged"] = true;
                 $_SESSION["role"] = $user->role;
                 $_SESSION["userEmail"] = $user_email_login;
@@ -74,13 +74,13 @@ class userController{
 
 
     function showAdmin(){
-        $this->helper->checkLoggedIn();
         $this->helper->checkRole(); 
         $categories = $this->categoryModel->getCategories();
         $this->view->adminPage($categories);
     }
         
     function usersPage(){
+        $this->helper->checkRole(); 
         $users = $this->userModel->getUsers();
         $this->view->showUsers($users);
     }
@@ -88,8 +88,9 @@ class userController{
     function userEdit(){
         $userId = $_POST["userId"];
         $userRole = $_POST["role"];
-        $userData = $this->userModel->editUser($userId, $userRole);
-        $this->view->showUsers($userData);
+        $this->userModel->editUser($userId, $userRole);
+        $users = $this->userModel->getUsers();
+        $this->view->showUsers($users);
     }
     
     function deleteUser($id_usuario){
