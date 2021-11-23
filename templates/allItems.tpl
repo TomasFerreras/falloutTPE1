@@ -7,8 +7,8 @@
 
 <main class="main">
     <section class="home" id="home">
-        <div class="home-container re-container re-grid gridAllItems">
-            <div class="home-info">
+        <div class="home-container-specific re-container re-grid gridAllItems">
+            <div class="home-info-specific">
                 <div class="items-list">
                     <ul class="all-items-list">
                         {foreach from=$items item=$item}

@@ -1,5 +1,6 @@
 <?php
 
+
 require_once "./View/userView.php";
 require_once "./Controller/itemController.php";
 require_once "./Model/usersModel.php";
@@ -13,6 +14,7 @@ class userController{
     private $view;
     private $itemController;
     private $helper;
+    
 
     function __construct(){
         $this->view = new userView;
@@ -35,7 +37,7 @@ class userController{
             $this->userModel->insertUser($user_email, $user_password, 0);
             $this->view->login();
         }else{
-            $this->view->notFound();
+            $this->notFound("Empty email or passwword");
         }
     }
 
@@ -57,10 +59,10 @@ class userController{
                 $_SESSION["userId"] = $user->id_user;
                 $this->itemController->showHome();
             }else{
-                $this->view->notFound();
+                $this->notFound("User doesnt exist or wrong password");
             }
         }else{
-            $this->view->notFound();
+            $this->notFound("Empty email or passwword");
         }
     }
 
@@ -96,7 +98,8 @@ class userController{
         $this->view->showUsers($users);
     }
 
-    function showNotFound(){
-        $this->view->notFound();
+    function notFound($error , $verify = null){
+        $this->view->notFound($error);
     }
+
 }

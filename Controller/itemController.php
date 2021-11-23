@@ -1,12 +1,12 @@
 <?php
 
+
 require_once "./Model/itemModel.php";
 require_once "./Model/categoryModel.php";
 require_once "./View/itemView.php";
 require_once "./Helpers/AutHelper.php";
 
 class itemController{
-
     private $itemModel;
     private $categoryModel;
     private $view;
@@ -18,7 +18,6 @@ class itemController{
         $this->itemModel = new itemModel;
         $this->view = new view;
         $this->helper = new AuthHelper;
-
     }
 
     function showHome(){
@@ -34,6 +33,7 @@ class itemController{
 
     function showItem($item){
         $this->helper->checkLoggedIn();
+        
         $items = $this->itemModel->getItems();
         $this->view->ItemsDescription($items , $item, $_SESSION['role'], $_SESSION['userId']);
     }
