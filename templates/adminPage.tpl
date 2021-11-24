@@ -12,7 +12,8 @@
     
                             <label for="weight">Weight</label>
                             <input type="number" step="any" name="weight">
-    
+
+                            <label for="input_img">Img</label>
                             <input type="file" name="input_img" id="imageToUpload">
                             
                             <label for="category">Category</label>
