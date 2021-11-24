@@ -12,6 +12,7 @@
                             <td>description_item</td>
                             <td>weight_item</td>
                             <td>category</td>
+                            <td>image</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,6 +24,7 @@
                                     <td>{$item->description_item} </td>
                                     <td>{$item->weight_item} </td>
                                     <td>{$item->id_category} </td>
+                                    <td>{$item->image}</td>
                                 </tr>
                             {/if}
                         {/foreach}

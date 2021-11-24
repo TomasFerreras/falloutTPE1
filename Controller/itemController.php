@@ -1,12 +1,12 @@
 <?php
 
+
 require_once "./Model/itemModel.php";
 require_once "./Model/categoryModel.php";
 require_once "./View/itemView.php";
 require_once "./Helpers/AutHelper.php";
 
 class itemController{
-
     private $itemModel;
     private $categoryModel;
     private $view;
@@ -18,7 +18,6 @@ class itemController{
         $this->itemModel = new itemModel;
         $this->view = new view;
         $this->helper = new AuthHelper;
-
     }
 
     function showHome(){
@@ -32,11 +31,15 @@ class itemController{
         $this->view->AllItems($items, $_SESSION['role']);
     }
 
-    function showItem($item){
-        
+    function showItem($nameItem){
         $this->helper->checkLoggedIn();
-        $items = $this->itemModel->getItems();
-        $this->view->ItemsDescription($items , $item, $_SESSION['role']);
+        $item = $this->itemModel->getItem($nameItem);
+        if($item){
+            var_dump($item->name_item);
+            $this->view->ItemsDescription(  $item , $_SESSION['role'], $_SESSION['userId']);
+        }else{
+            // notFound
+        }
     }
 
     function showItems_Categories($id_category){
@@ -46,16 +49,32 @@ class itemController{
     }
 
     function search(){
-        $this->helper->checkLoggedIn();
         $this->helper->checkRole();       
         $categories = $this->categoryModel->getCategories();
         $items = $this->itemModel->getItems();
         $this->view->searchAdminPage($items, $categories, $_POST['search'] );   
     }
 
+    //FIXME:FIX THIS
+
     function createItem(){
-        $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category']);
-        $this->view->showAdminPage();
+        if ($_FILES["input_img"]["type"]=="image/png" || $_FILES["input_img"]["type"]=="image/jpeg"){
+            if(($_FILES["input_img"]["type"]=="image/png")){
+                $type = ".png";
+            }else if (($_FILES["input_img"]["type"]=="image/jpeg")){
+                $type = ".jpg";
+            }
+            $img=$_FILES["input_img"];
+            $origin=$img["tmp_name"];
+            $destiny="public/".uniqid(). $type;
+            copy($origin, $destiny);
+            $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], $destiny);
+            $this->view->showAdminPage();
+        }else {
+            $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], null);
+            $this->view->showAdminPage();
+        }
+
     }
 
     function deleteItem($nameItem){

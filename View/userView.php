@@ -24,7 +24,8 @@ class userView{
         $this->smarty->display('templates/usersPage.tpl');
     }
 
-    function notFound(){
+    function notFound($error ){
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/notFound404.tpl');
     }
 

@@ -6,11 +6,13 @@ require_once 'ApiController/ApiController.php';
 $router = new Router();
 
 // define la tabla de ruteo
-// $router->addRoute('tareas', 'GET', 'ApiTaskController', 'obtenerTareas');
-// $router->addRoute('tareas', 'POST', 'ApiTaskController', 'crearTarea');
 $router->addRoute('Item/:ID', 'GET', 'ApiController', 'commentsSection');
+<<<<<<< HEAD
 $router->addRoute('Item', 'POST', 'ApiController', 'addComment');
+=======
+>>>>>>> working
 $router->addRoute('Item/:ID', 'DELETE', 'ApiController', 'deleteComment');
+$router->addRoute('Item', 'POST', 'ApiController', 'addComment');
 
 // rutea
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

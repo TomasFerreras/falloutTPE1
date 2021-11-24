@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2021 at 11:27 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: Nov 24, 2021 at 11:11 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,15 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `user_email` varchar(50) NOT NULL,
-  `user_password` varchar(100) NOT NULL
+  `user_password` varchar(100) NOT NULL,
+  `role` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `user_email`, `user_password`) VALUES
-(2, 'peusco2001@gmail.com', '$2y$10$k2/9XZ2hK1c.xO9n0.WGIuKOe/OWxwrfH5kOHk7Rs/d874R/T.w32');
+INSERT INTO `users` (`id_user`, `user_email`, `user_password`, `role`) VALUES
+(10, 'admin', '$2y$10$ukMk2G4l2QIB8mmYMmurE.dvumZk0b8gPLKCkKhIyKlsL3FRdCCN2', 1),
+(24, 'peusco2001@gmail.com', '$2y$10$SFHyX1EseRXUqTutcVD5AuE7RhnCmCly1ZOPizshNP2yinXaFHoEG', 0);
 
 --
 -- Indexes for dumped tables
@@ -58,7 +60,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

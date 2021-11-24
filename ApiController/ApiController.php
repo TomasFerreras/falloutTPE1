@@ -28,14 +28,22 @@ class ApiController{
     }
 
     function addComment(){
+<<<<<<< HEAD
         
         $body = $this->body();
         $this->commentsModel->insertComment($body->comentario, $body->valoracion, $body->id_item);
+=======
+        $body = $this->body();
+        $this->commentsModel->insertComment($body->comentario , $body->valoracion, $body->id_item, $body->id_user);
+        return $this->view->response("El comentario se agrego! :p", 200);
+>>>>>>> working
     }
 
     function body(){
         $body = file_get_contents("php://input"); 
         return json_decode($body);
     }
+ 
 
+    // input =, > , < 5
 }
