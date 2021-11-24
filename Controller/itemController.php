@@ -58,10 +58,10 @@ class itemController{
     //FIXME:FIX THIS
 
     function createItem(){
-        if ($_FILES["input_img"]["type"]=="image/png" || $_FILES["input_img"]["type"]=="image/jpg"){
+        if ($_FILES["input_img"]["type"]=="image/png" || $_FILES["input_img"]["type"]=="image/jpeg"){
             if(($_FILES["input_img"]["type"]=="image/png")){
                 $type = ".png";
-            }else if (($_FILES["input_img"]["type"]=="image/jpg")){
+            }else if (($_FILES["input_img"]["type"]=="image/jpeg")){
                 $type = ".jpg";
             }
             $img=$_FILES["input_img"];

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2021 at 10:04 PM
+-- Generation Time: Nov 24, 2021 at 11:11 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,8 +62,6 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id_item`, `name_item`, `description_item`, `weight_item`, `id_category`, `image`) VALUES
-(1, 'Nuka-Cola', 'The unique taste of Nuka-Cola is the result of a combination of 17 fruit essences, balanced to enhance the classic cola flavor.', 1, 1, ''),
-(2, 'Fat Man', 'First entering service in September 2077 with the U.S. Army, the Fat Man is a shoulder-mounted mini nuke launcher.', 31, 2, ''),
 (3, 'Mascot head', 'The mascot head is a unique hat that can be worn with face apparel. It has a hole in one side, allowing the wearer\'s face to still be seen.', 1, 3, ''),
 (5, 'Deathclaw omelette', 'A tasty wasteland omelette.', 0.1, 1, ''),
 (6, 'Salisbury Steak', 'Saddle Up Salisbury Steaks are found in branded split-tone boxes that heal 30 Hit Points and add 9 rads upon consumption.', 0.5, 1, ''),
@@ -80,12 +78,9 @@ INSERT INTO `items` (`id_item`, `name_item`, `description_item`, `weight_item`, 
 (17, 'Vault 81 cure', 'The Vault 81 cure is the only cure for the mole rat disease contracted after being bitten by a Vault 81 lab mole rat.', 0.3, 1, ''),
 (18, 'Chinese stealth armor', 'The Chinese stealth armor is a piece of armor in the Fallout 4 Creation Club content \"Chinese Stealth Armor.\"', 24, 3, ''),
 (19, 'Gas mask', 'A simple gas mask that covers the entire face. It is held on to the wearer by adjustable straps.', 3, 3, ''),
-(37, 'ASFFASF', 'ASFFGHASGFHASF', 20, 3, 'public/619bfb45127f6.png'),
-(43, 'PIJOTEEE', 'PIJOTEEE', 200, 1, 'public/619bfd029fe00'),
-(44, 'Tomas Ferreras', 'pilin pilin', 2332, 2, 'public/619bfe3f6cedfpng'),
-(45, 'LA CONCHA TUYA', 'LA CONCHA TUYA', 2000, 1, 'public/619bfe59c017a.png'),
-(46, 'pija', 'pilin pilin', 200, 2, NULL),
-(47, 'dasda', 'asdads', 26, 2, 'public/619c0304b443c.png');
+(49, 'Nuka-Cola', 'The best tasting cola you can find, in a Nuke shaped glass bottle.', 1, 1, 'public/619ea80311a69.png'),
+(52, 'Fat Man', 'Fat Man is a Heavy Gun in Fallout 4. You need the Gun Nut and Science! Perk to improve this weapon.', 30.7, 2, 'public/619eae91e5561.png'),
+(53, 'Power Armor', 'Power Armor is Armor in Fallout 4 that is an energized suit. It requires great Strength in order to be able to use and needs a Fusion Core to power it.', 102, 3, 'public/619eaf50efbf1.png');
 
 --
 -- Indexes for dumped tables
@@ -118,7 +113,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_item` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_item` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Constraints for dumped tables

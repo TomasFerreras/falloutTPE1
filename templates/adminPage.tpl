@@ -14,7 +14,7 @@
                             <input type="number" step="any" name="weight">
 
                             <label for="input_img">Img</label>
-                            <input type="file" name="input_img" id="imageToUpload">
+                            <input  accept="image/png, image/jpeg" type="file" name="input_img" id="imageToUpload">
                             
                             <label for="category">Category</label>
                                 <select name="category" required>
