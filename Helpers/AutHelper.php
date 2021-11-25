@@ -49,6 +49,6 @@ class AuthHelper{
     }
 
     function notFound($error){
-        $this->userView->notFound($error );
+        $this->userView->notFound($error);
     }
 }
