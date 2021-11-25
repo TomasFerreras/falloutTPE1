@@ -14,9 +14,16 @@ class itemModel{
         return $items;
     }
 
-    function insertItem($name,$description,$weight,$category){
-        $sentencia = $this->itemDB->prepare("INSERT INTO items(name_item,description_item, weight_item, id_category ) VALUES(?, ?, ?, ?)");
-        $sentencia->execute(array($name,$description,$weight, $category ));
+    function getItem($name){
+        $sentencia = $this->itemDB->prepare("SELECT * FROM items WHERE name_item = ?");
+        $sentencia->execute(array($name));
+        $item = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $item;
+    }
+
+    function insertItem($name,$description,$weight,$category, $destiny){
+        $sentencia = $this->itemDB->prepare("INSERT INTO items(name_item,description_item, weight_item, id_category, image) VALUES(?, ?, ?, ?, ?)");
+        $sentencia->execute(array($name,$description,$weight, $category, $destiny ));
     }
 
     function deleteItem($nameItem){

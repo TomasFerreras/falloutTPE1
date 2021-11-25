@@ -1,5 +1,6 @@
 <?php
 
+require_once "Helpers\AutHelper.php";
 require_once "Controller/itemController.php";
 require_once "Controller/categoryController.php";
 require_once "Controller/userController.php";
@@ -17,7 +18,7 @@ if (!empty($_GET['action'])) {
 // parsea la accion Ej: suma/1/2 --> ['suma', 1, 2]
 $params = explode('/', $action);
 
-
+$helper = new AuthHelper();
 $itemController = new itemController();
 $categoryController = new categoryController();
 $userController = new userController();
@@ -96,7 +97,7 @@ switch ($params[0]) {
     break;
 
     default: 
-        $userController->shownotFound(); 
+        $helper->notFound("page doesnt exist"); 
     break;
 };
 
