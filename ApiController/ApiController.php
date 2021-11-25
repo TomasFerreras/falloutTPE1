@@ -33,24 +33,14 @@ class ApiController{
     }
 
     function addComment(){
-<<<<<<< HEAD
-        
-        $body = $this->body();
-        $this->commentsModel->insertComment($body->comentario, $body->valoracion, $body->id_item);
-=======
         $body = $this->body();
         $this->commentsModel->insertComment($body->comentario , $body->valoracion, $body->id_item, $body->id_user);
-<<<<<<< HEAD
         $comment = $this->commentsModel->getCommentsByIdItem($body->id_item);
         if($comment){
             return $this->view->response("El comentario se agrego!", 200);
         }else{
             return $this->view->response("Error al agregar el mensaje", 404);
         }
-=======
-        return $this->view->response("El comentario se agrego! :p", 200);
->>>>>>> 2806ae68dd61b16e485448d66a83c6bd98bfa071
->>>>>>> working
     }
 
     function body(){
