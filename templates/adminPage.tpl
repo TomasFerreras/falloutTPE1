@@ -5,13 +5,13 @@
                     <div>
                         <form class="admin-form" action="createItem" method="post" enctype="multipart/form-data">
                             <label for="name">Name</label>
-                            <input type="text" name="name">
+                            <input type="text" name="name" required>
     
                             <label for="description">Description</label>
-                            <input type="text" name="description">
+                            <input type="text" name="description" required>
     
                             <label for="weight">Weight</label>
-                            <input type="number" step="any" name="weight">
+                            <input type="number" step="any" name="weight" required>
 
                             <label for="input_img">Img</label>
                             <input  accept="image/png, image/jpeg" type="file" name="input_img" id="imageToUpload">
@@ -31,7 +31,7 @@
                     <div>
                         <form class="admin-form" action="adminSearch" method="post">
                             <label for="search">Search</label>
-                            <input type="text" name="search">
+                            <input type="text" name="search" required>
                             
                             <button type="submit" value="edit" id="searchItem">Edit</button>
                         </form>    

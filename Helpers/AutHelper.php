@@ -1,8 +1,11 @@
 <?php
 
+require_once "View\userView.php";
 class AuthHelper{
+    private $userView;
 
     function __construct(){
+        $this->userView = new userView;
     }
 
     function checkLoggedIn(){
@@ -43,5 +46,9 @@ class AuthHelper{
             }
         }
         
+    }
+
+    function notFound($error){
+        $this->userView->notFound($error );
     }
 }

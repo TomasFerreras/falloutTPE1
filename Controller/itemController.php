@@ -11,7 +11,6 @@ class itemController{
     private $categoryModel;
     private $view;
     private $helper;
-    private $verify;
 
     function __construct(){
         $this->categoryModel = new categoryModel;
@@ -35,10 +34,9 @@ class itemController{
         $this->helper->checkLoggedIn();
         $item = $this->itemModel->getItem($nameItem);
         if($item){
-            var_dump($item->name_item);
             $this->view->ItemsDescription(  $item , $_SESSION['role'], $_SESSION['userId']);
         }else{
-            // notFound
+            $this->helper->notFound("item doesn't exist");
         }
     }
 
@@ -58,21 +56,25 @@ class itemController{
     //FIXME:FIX THIS
 
     function createItem(){
-        if ($_FILES["input_img"]["type"]=="image/png" || $_FILES["input_img"]["type"]=="image/jpeg"){
-            if(($_FILES["input_img"]["type"]=="image/png")){
-                $type = ".png";
-            }else if (($_FILES["input_img"]["type"]=="image/jpeg")){
-                $type = ".jpg";
+        if(!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['weight']) && !empty($_POST['category'])){
+            if ($_FILES["input_img"]["type"]=="image/png" || $_FILES["input_img"]["type"]=="image/jpeg"){
+                if(($_FILES["input_img"]["type"]=="image/png")){
+                    $type = ".png";
+                }else if (($_FILES["input_img"]["type"]=="image/jpeg")){
+                    $type = ".jpg";
+                }
+                $img=$_FILES["input_img"];
+                $origin=$img["tmp_name"];
+                $destiny="public/".uniqid(). $type;
+                copy($origin, $destiny);
+                $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], $destiny);
+                $this->view->showAdminPage();
+            }else {
+                $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], null);
+                $this->view->showAdminPage();
             }
-            $img=$_FILES["input_img"];
-            $origin=$img["tmp_name"];
-            $destiny="public/".uniqid(). $type;
-            copy($origin, $destiny);
-            $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], $destiny);
-            $this->view->showAdminPage();
-        }else {
-            $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], null);
-            $this->view->showAdminPage();
+        }else{
+            $this->helper->notFound("Empty input/s");
         }
 
     }

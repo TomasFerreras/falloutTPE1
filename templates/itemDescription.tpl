@@ -25,7 +25,7 @@
         {if $verify == true}
             <form id= "addForm" class="hidden">
                 <input type ="text" name= "comment" required>
-                <select class="itemRating" name="rating">
+                <select class="itemRating" name="rating" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -37,7 +37,7 @@
             {else}
             <form id= "addForm">
                 <input type ="text" name= "comment" required>
-                <select class="itemRating" name="rating">
+                <select class="itemRating" name="rating" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

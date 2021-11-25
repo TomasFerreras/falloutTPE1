@@ -59,10 +59,10 @@ class userController{
                 $_SESSION["userId"] = $user->id_user;
                 $this->itemController->showHome();
             }else{
-                $this->notFound("User doesnt exist or wrong password");
+                $this->helper->notFound("User doesnt exist or wrong password");
             }
         }else{
-            $this->notFound("Empty email or passwword");
+            $this->helper->notFound("Empty email or passwword");
         }
     }
 
@@ -97,10 +97,6 @@ class userController{
         $this->userModel->deleteUser($id_usuario);
         $users = $this->userModel->getUsers();
         $this->view->showUsers($users);
-    }
-
-    function notFound($error , $verify = null){
-        $this->view->notFound($error);
     }
 
 }

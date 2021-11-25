@@ -7,9 +7,9 @@
             <form class="admin-form" action="userEdit" method="post">
 
                 <label for="userId">User ID</label>
-                <input type="text" name="userId">
+                <input type="text" name="userId" required>
                 <button type="submit" value="edit" id="searchEditUser">Search and change rol to: </button>
-                <select name="role">
+                <select name="role" required>
                     <option value=1>Admin</option>
                     <option value=0>Regular</option>
                 </select>
