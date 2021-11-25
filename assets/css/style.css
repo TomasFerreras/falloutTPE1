@@ -123,6 +123,10 @@ img{
   background-color: var(--blue-clr);
 }
 
+.hidden{
+  display: none;
+}
+
 /*NAV*/
 .nav{
     height: var(--header-height);
@@ -482,6 +486,10 @@ hr{
     height: calc(100vh - var(--header-height));
   }
 
+  .home-container-specific{
+    height: calc(100% - var(--header-height));
+  }
+
   .home-title{
     font-size: 2.5rem;
   }
@@ -563,7 +571,7 @@ hr{
   }
 
   .main{
-    margin-top: calc(var(--header-height) + 1.5rem);
+    margin-top: calc(var(--header-height) + 4rem);
   }
 
   .re-container{
@@ -571,7 +579,12 @@ hr{
   }
 
   .home-info{
-    margin: 0;
+    margin-top: calc(var(--header-height) + 1.5rem);
+    justify-self: left;
+    width: 100%;
+  }
+
+  .home-info-specific{
     justify-self: left;
     width: 100%;
   }

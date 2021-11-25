@@ -1,10 +1,11 @@
 <?php
+
+
 require_once "./Model/categoryModel.php";
 require_once "./View/categoryView.php";
 require_once "./Helpers/AutHelper.php";
 
 class categoryController{
-
     private $categoryModel;
     private $view;
     private $helper;

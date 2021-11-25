@@ -1,24 +1,22 @@
 <?php
 
+
 require_once "./Model/itemModel.php";
 require_once "./Model/categoryModel.php";
 require_once "./View/itemView.php";
 require_once "./Helpers/AutHelper.php";
 
 class itemController{
-
     private $itemModel;
     private $categoryModel;
     private $view;
     private $helper;
-    private $verify;
 
     function __construct(){
         $this->categoryModel = new categoryModel;
         $this->itemModel = new itemModel;
         $this->view = new view;
         $this->helper = new AuthHelper;
-
     }
 
     function showHome(){
@@ -32,11 +30,14 @@ class itemController{
         $this->view->AllItems($items, $_SESSION['role']);
     }
 
-    function showItem($item){
-        
+    function showItem($nameItem){
         $this->helper->checkLoggedIn();
-        $items = $this->itemModel->getItems();
-        $this->view->ItemsDescription($items , $item, $_SESSION['role']);
+        $item = $this->itemModel->getItem($nameItem);
+        if($item){
+            $this->view->ItemsDescription(  $item , $_SESSION['role'], $_SESSION['userId']);
+        }else{
+            $this->helper->notFound("item doesn't exist");
+        }
     }
 
     function showItems_Categories($id_category){
@@ -46,16 +47,36 @@ class itemController{
     }
 
     function search(){
-        $this->helper->checkLoggedIn();
         $this->helper->checkRole();       
         $categories = $this->categoryModel->getCategories();
         $items = $this->itemModel->getItems();
         $this->view->searchAdminPage($items, $categories, $_POST['search'] );   
     }
 
+    //FIXME:FIX THIS
+
     function createItem(){
-        $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category']);
-        $this->view->showAdminPage();
+        if(!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['weight']) && !empty($_POST['category'])){
+            if ($_FILES["input_img"]["type"]=="image/png" || $_FILES["input_img"]["type"]=="image/jpeg"){
+                if(($_FILES["input_img"]["type"]=="image/png")){
+                    $type = ".png";
+                }else if (($_FILES["input_img"]["type"]=="image/jpeg")){
+                    $type = ".jpg";
+                }
+                $img=$_FILES["input_img"];
+                $origin=$img["tmp_name"];
+                $destiny="public/".uniqid(). $type;
+                copy($origin, $destiny);
+                $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], $destiny);
+                $this->view->showAdminPage();
+            }else {
+                $this->itemModel->insertItem($_POST['name'],$_POST['description'],$_POST['weight'],$_POST['category'], null);
+                $this->view->showAdminPage();
+            }
+        }else{
+            $this->helper->notFound("Empty input/s");
+        }
+
     }
 
     function deleteItem($nameItem){

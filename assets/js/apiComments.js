@@ -1,6 +1,8 @@
 "use strict"
 let title = document.querySelector("#item_tittle");
+let user_rol = title.dataset.rol;
 let id_item = title.dataset.item;
+let id_user = title.dataset.user;
 
 <<<<<<< HEAD
 
@@ -10,12 +12,37 @@ const API_URL = `api/Item`
 
 
 document.querySelector("#deleteBtn").addEventListener('click', deleteComment);
+document.querySelector("#addForm").addEventListener('submit', addComment);
+
+
+async function addComment(e){
+    e.preventDefault();
+    let comment = {
+        comentario : document.querySelector("input[name= comment]").value,
+        valoracion : document.querySelector("select[name= rating]").value,
+        id_item : id_item,
+        id_user : id_user
+    }
+    
+    console.log(comment);
+    try {
+        await fetch(API_URL,{
+            "method": "POST",
+            "headers":{"Content-type":"application/JSON"},
+            "body": JSON.stringify(comment)
+        })
+    } catch (e) {
+        console.log(e);
+    }
+    getComments();
+};
 
 
 let app = new Vue({
     el: "#comment-list",
     data: {
-        comments: []
+        comments: [],
+        rol: user_rol
     },
     methods: {
         deleteComment: deleteComment
@@ -60,9 +87,10 @@ async function deleteComment(comment_id){
     } catch (error) {
         console.log(error);
     }
-    getComments()
+    getComments();
 }
 
+<<<<<<< HEAD
 getComments();
 
 >>>>>>> b5bb22b6fcb8cb22e475c6beba82b842205fb196
@@ -91,3 +119,6 @@ async function addComment(){
 getComments();
 =======
 >>>>>>> b5bb22b6fcb8cb22e475c6beba82b842205fb196
+=======
+getComments();
+>>>>>>> working
